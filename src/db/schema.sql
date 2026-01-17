@@ -129,7 +129,7 @@ CREATE OR REPLACE FUNCTION get_latest_metrics(
   success_rate FLOAT,
   error_count INT,
   uptime_pct FLOAT,
-  timestamp TIMESTAMPTZ
+  recorded_at TIMESTAMPTZ
 ) AS $$
 BEGIN
   RETURN QUERY
@@ -138,7 +138,7 @@ BEGIN
     m.success_rate,
     m.error_count,
     m.uptime_pct,
-    m.timestamp
+    m.timestamp AS recorded_at
   FROM metrics m
   WHERE m.server_id = p_server_id
   ORDER BY m.timestamp DESC
@@ -155,7 +155,7 @@ CREATE OR REPLACE FUNCTION get_metrics_history(
   success_rate FLOAT,
   error_count INT,
   uptime_pct FLOAT,
-  timestamp TIMESTAMPTZ
+  recorded_at TIMESTAMPTZ
 ) AS $$
 BEGIN
   RETURN QUERY
@@ -164,7 +164,7 @@ BEGIN
     m.success_rate,
     m.error_count,
     m.uptime_pct,
-    m.timestamp
+    m.timestamp AS recorded_at
   FROM metrics m
   WHERE m.server_id = p_server_id
     AND m.timestamp > NOW() - (p_hours || ' hours')::INTERVAL

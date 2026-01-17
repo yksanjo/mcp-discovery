@@ -47,6 +47,7 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
     "@supabase/supabase-js": "^2.89.0",
+    "dotenv": "^17.2.3",
     "openai": "^4.70.0",
     "zod": "^3.23.0"
   },
