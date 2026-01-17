@@ -1,0 +1,59 @@
+{
+  "name": "@mcp-tools/discovery",
+  "version": "1.0.0",
+  "description": "Agent-native discovery and routing layer for MCP servers. Enables AI agents to autonomously discover, evaluate, and select the best MCP servers for their tasks.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "mcp-discovery": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "lint": "eslint src --ext .ts",
+    "typecheck": "tsc --noEmit",
+    "seed": "tsx scripts/seed-data.ts",
+    "generate-embeddings": "tsx scripts/generate-embeddings.ts",
+    "scrape": "tsx scripts/scrape-registries.ts",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "agent",
+    "discovery",
+    "llm",
+    "claude",
+    "anthropic"
+  ],
+  "author": "Yoshi",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yksanjo/mcp-discovery.git"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "@supabase/supabase-js": "^2.89.0",
+    "openai": "^4.70.0",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}
