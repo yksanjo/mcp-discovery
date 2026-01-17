@@ -15,7 +15,9 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsx watch src/index.ts",
-    "start": "node dist/index.js",
+    "dev:api": "tsx watch src/api.ts",
+    "start": "node dist/api.js",
+    "start:mcp": "node dist/index.js",
     "test": "vitest",
     "test:run": "vitest run",
     "lint": "eslint src --ext .ts",
