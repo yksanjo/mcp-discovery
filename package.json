@@ -1,5 +1,5 @@
 {
-  "name": "@mcp-tools/discovery",
+  "name": "mcp-discovery-api",
   "version": "1.0.0",
   "description": "Agent-native discovery and routing layer for MCP servers. Enables AI agents to autonomously discover, evaluate, and select the best MCP servers for their tasks.",
   "type": "module",

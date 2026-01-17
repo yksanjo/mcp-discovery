@@ -14,13 +14,13 @@ Agent-native discovery and routing layer for Model Context Protocol (MCP) server
 ### Using npx (Recommended)
 
 ```bash
-npx @mcp-tools/discovery
+npx mcp-discovery-api
 ```
 
 ### Manual Installation
 
 ```bash
-npm install -g @mcp-tools/discovery
+npm install -g mcp-discovery-api
 mcp-discovery
 ```
 
@@ -35,7 +35,7 @@ Add to your Claude Desktop configuration (`~/Library/Application Support/Claude/
   "mcpServers": {
     "discovery": {
       "command": "npx",
-      "args": ["-y", "@mcp-tools/discovery"],
+      "args": ["-y", "mcp-discovery-api"],
       "env": {
         "SUPABASE_URL": "your-supabase-url",
         "SUPABASE_SERVICE_ROLE_KEY": "your-service-role-key",
@@ -55,7 +55,7 @@ Add to your Cursor MCP settings:
   "mcpServers": {
     "discovery": {
       "command": "npx",
-      "args": ["-y", "@mcp-tools/discovery"],
+      "args": ["-y", "mcp-discovery-api"],
       "env": {
         "SUPABASE_URL": "your-supabase-url",
         "SUPABASE_SERVICE_ROLE_KEY": "your-service-role-key",
@@ -270,7 +270,7 @@ docker run -e SUPABASE_URL=... -e SUPABASE_SERVICE_ROLE_KEY=... -e OPENAI_API_KE
 
 ```bash
 # Use the CLI
-npx @mcp-tools/discovery search "database server"
+npx mcp-discovery-api search "database server"
 
 # Or use the API directly
 curl https://mcp-discovery-production.up.railway.app/api/v1/discover \
@@ -350,7 +350,7 @@ PR submitted to: https://github.com/modelcontextprotocol/servers
              ↓
 ┌─────────────────────────────────────┐
 │   MCP DISCOVERY SERVER              │
-│   @mcp-tools/discovery              │
+│   mcp-discovery-api              │
 │   - Semantic capability matching    │
 │   - Performance ranking             │
 │   - Returns structured metadata     │

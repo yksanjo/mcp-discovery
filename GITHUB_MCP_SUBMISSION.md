@@ -20,7 +20,7 @@ Enables AI agents to discover, evaluate, and select MCP servers dynamically usin
 ## Installation
 
 ```bash
-npx @mcp-tools/discovery
+npx mcp-discovery-api
 ```
 
 ## Configuration
@@ -34,7 +34,7 @@ Add to `claude_desktop_config.json`:
   "mcpServers": {
     "mcp-discovery": {
       "command": "npx",
-      "args": ["-y", "@mcp-tools/discovery"],
+      "args": ["-y", "mcp-discovery-api"],
       "env": {
         "SUPABASE_URL": "https://jyixgalqejdandnrmnqe.supabase.co",
         "SUPABASE_SERVICE_ROLE_KEY": "your-key",
@@ -52,7 +52,7 @@ Or use the hosted API:
   "mcpServers": {
     "mcp-discovery": {
       "command": "npx",
-      "args": ["-y", "@mcp-tools/discovery", "--api", "https://mcp-discovery-production.up.railway.app"]
+      "args": ["-y", "mcp-discovery-api", "--api", "https://mcp-discovery-production.up.railway.app"]
     }
   }
 }
@@ -140,7 +140,7 @@ curl -X POST https://mcp-discovery-production.up.railway.app/api/v1/keys \
 
 - **GitHub**: https://github.com/yksanjo/mcp-discovery
 - **API**: https://mcp-discovery-production.up.railway.app
-- **npm**: https://www.npmjs.com/package/@mcp-tools/discovery
+- **npm**: https://www.npmjs.com/package/mcp-discovery-api
 
 ## License
 
