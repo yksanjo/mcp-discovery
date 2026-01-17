@@ -9,11 +9,11 @@ export interface RateLimitResult {
 }
 
 export async function checkRateLimit(apiKey: string | null): Promise<RateLimitResult> {
-  // Allow requests without API key (public tier with strict limits)
+  // Allow requests without API key (public tier with generous limits for launch)
   if (!apiKey) {
     return {
-      allowed: true, // For now, allow public access
-      remaining: 10,
+      allowed: true,
+      remaining: 1000, // Generous limit for launch
       tier: 'public',
       apiKeyId: null,
     };
