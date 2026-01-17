@@ -32,5 +32,5 @@ COPY --from=builder /app/dist ./dist
 # Set environment variables
 ENV NODE_ENV=production
 
-# Run the MCP server
-CMD ["node", "dist/index.js"]
+# Run the HTTP API server
+CMD ["node", "dist/api.js"]
