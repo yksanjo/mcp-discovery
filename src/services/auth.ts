@@ -83,10 +83,27 @@ export async function generateApiKey(
 ): Promise<string | null> {
   const supabase = getSupabaseClient();
 
-  const { data, error } = await supabase.rpc('generate_api_key', {
-    p_email: email,
-    p_name: name || null,
-    p_tier: tier,
+  // Generate a random API key
+  const randomBytes = Array.from({ length: 24 }, () =>
+    Math.floor(Math.random() * 256).toString(16).padStart(2, '0')
+  ).join('');
+  const apiKey = `mcp_${randomBytes}`;
+
+  // Set limit based on tier
+  const limits: Record<string, number> = {
+    free: 100,
+    pro: 10000,
+    enterprise: 999999,
+  };
+  const monthlyLimit = limits[tier] || 100;
+
+  // Insert directly
+  const { error } = await supabase.from('api_keys').insert({
+    key: apiKey,
+    email,
+    name: name || null,
+    tier,
+    monthly_limit: monthlyLimit,
   });
 
   if (error) {
@@ -94,5 +111,5 @@ export async function generateApiKey(
     return null;
   }
 
-  return data;
+  return apiKey;
 }
