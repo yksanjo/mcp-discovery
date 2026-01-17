@@ -264,6 +264,20 @@ docker build -t mcp-discovery .
 docker run -e SUPABASE_URL=... -e SUPABASE_SERVICE_ROLE_KEY=... -e OPENAI_API_KEY=... mcp-discovery
 ```
 
+## Quick Start
+
+### Test it instantly
+
+```bash
+# Use the CLI
+npx @mcp-tools/discovery search "database server"
+
+# Or use the API directly
+curl https://mcp-discovery-production.up.railway.app/api/v1/discover \
+  -H "Content-Type: application/json" \
+  -d '{"need": "email automation", "limit": 5}'
+```
+
 ## Example Usage
 
 ```
@@ -278,6 +292,51 @@ with built-in authentication, real-time subscriptions, and row-level security.
 
 To install: npx -y @supabase/mcp-server"
 ```
+
+## API Access
+
+**Hosted API**: `https://mcp-discovery-production.up.railway.app`
+
+| Tier | Price | Queries/Month | Features |
+|------|-------|---------------|----------|
+| Free | $0 | 100 | Basic discovery, Server info |
+| Pro | $29/mo | 10,000 | All free features, Performance metrics, Priority support |
+| Enterprise | Custom | Unlimited | All pro features, SLA, Custom integrations |
+
+**Get an API key:**
+```bash
+curl -X POST https://mcp-discovery-production.up.railway.app/api/v1/keys \
+  -H "Content-Type: application/json" \
+  -d '{"email": "you@example.com"}'
+```
+
+## Distribution Strategy
+
+### Platform Integrations
+
+**Priority targets:**
+
+1. **Cursor** - Aggressively building MCP support
+   - Contact: team@cursor.com
+   - Pitch: "Built-in MCP discovery for your users"
+
+2. **Continue.dev** - Open source, easier entry
+   - Open GitHub issue proposing integration
+   - Submit PR adding discovery tool
+
+3. **Zed Editor** - Growing fast, MCP-friendly
+
+### Content & SEO
+
+Planned pages:
+- `/servers` - Full MCP server directory
+- `/servers/database` - Category pages
+- `/guides/choosing-mcp-server` - Educational content
+- `/compare/[server-a-vs-server-b]` - Comparison pages
+
+### MCP Registry Submission
+
+PR submitted to: https://github.com/modelcontextprotocol/servers
 
 ## Architecture
 
