@@ -1,4 +1,5 @@
 import { generateEmbedding } from './embeddings.js';
+import { getCachedSearch, setCachedSearch } from './cache.js';
 import {
   searchServersByEmbedding,
   getCapabilitiesForServer,
@@ -56,6 +57,21 @@ export async function discoverServers(
   query_time_ms: number;
 }> {
   const startTime = Date.now();
+
+  // Check cache first
+  const cacheKey = { need: input.need, limit: input.limit, constraints: input.constraints };
+  const cached = getCachedSearch(input.need, cacheKey) as {
+    recommendations: ServerRecommendation[];
+    total_found: number;
+    query_time_ms: number;
+  } | null;
+
+  if (cached) {
+    return {
+      ...cached,
+      query_time_ms: Date.now() - startTime, // Update with actual cache hit time
+    };
+  }
 
   const searchOptions: SearchOptions = {
     limit: input.limit || 5,
@@ -129,9 +145,14 @@ export async function discoverServers(
 
   const queryTimeMs = Date.now() - startTime;
 
-  return {
+  const result = {
     recommendations: sortedRecommendations,
     total_found: sortedRecommendations.length,
     query_time_ms: queryTimeMs,
   };
+
+  // Cache the result
+  setCachedSearch(input.need, cacheKey, result);
+
+  return result;
 }

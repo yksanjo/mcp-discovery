@@ -1,219 +1,244 @@
-# MCP Discovery API
+# MCP Discovery
 
-Agent-native discovery and routing layer for Model Context Protocol (MCP) servers. Enables AI agents to autonomously discover, evaluate, and select the best MCP servers for their tasks.
+### The Largest MCP Server Index - 715+ Servers for AI Agents
 
-## Features
+[![Servers](https://img.shields.io/badge/MCP%20Servers-715+-blue)](https://mcp-discovery-two.vercel.app)
+[![API](https://img.shields.io/badge/API-Live-green)](https://mcp-discovery-two.vercel.app/health)
+[![Categories](https://img.shields.io/badge/Categories-32-purple)](https://mcp-discovery-two.vercel.app/api/v1/categories)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
-- **Semantic Search**: Find MCP servers using natural language queries
-- **Performance Metrics**: Get real-time latency, uptime, and reliability data
-- **Server Comparison**: Compare multiple MCP servers side-by-side
-- **Agent-Native**: Works seamlessly with Claude, Cursor, and other MCP clients
+**Live API:** https://mcp-discovery-two.vercel.app
 
-## Installation
+---
 
-### Using npx (Recommended)
+## Why MCP Discovery?
+
+| Challenge | Without MCP Discovery | With MCP Discovery |
+|-----------|----------------------|-------------------|
+| Finding servers | Manual search through docs | Natural language: "I need a database" |
+| Server count | Scattered across registries | **715+ servers in one place** |
+| For AI agents | Agents can't discover tools | Agents autonomously find tools |
+| Speed | Minutes of searching | **Sub-100ms responses** |
+
+---
+
+## For AI Agents - Built Agent-First
+
+MCP Discovery is designed for **AI agents to call directly**. Your agent can autonomously discover and select the right MCP server:
+
+```
+User: "Help me sync my Notion notes to a database"
+
+Agent thinks: "I need Notion access and a database"
+
+Agent calls: POST /api/v1/discover
+             {"need": "connect to notion"}
+
+Returns: notion-mcp-server with install command
+
+Agent calls: POST /api/v1/discover
+             {"need": "database storage"}
+
+Returns: sqlite-server, redis-server, supabase-server
+
+Agent: "I'll use notion-mcp-server and sqlite-server for this task..."
+```
+
+---
+
+## Quick Start
+
+### Find an MCP Server (One Line)
 
 ```bash
-npx mcp-discovery-api
+curl -X POST https://mcp-discovery-two.vercel.app/api/v1/discover \
+  -H "Content-Type: application/json" \
+  -d '{"need": "send emails"}'
 ```
 
-### Manual Installation
-
-```bash
-npm install -g mcp-discovery-api
-mcp-discovery
-```
-
-## Configuration
-
-### Claude Desktop
-
-Add to your Claude Desktop configuration (`~/Library/Application Support/Claude/claude_desktop_config.json` on macOS):
-
-```json
-{
-  "mcpServers": {
-    "discovery": {
-      "command": "npx",
-      "args": ["-y", "mcp-discovery-api"],
-      "env": {
-        "SUPABASE_URL": "your-supabase-url",
-        "SUPABASE_SERVICE_ROLE_KEY": "your-service-role-key",
-        "OPENAI_API_KEY": "your-openai-api-key"
-      }
-    }
-  }
-}
-```
-
-### Cursor
-
-Add to your Cursor MCP settings:
-
-```json
-{
-  "mcpServers": {
-    "discovery": {
-      "command": "npx",
-      "args": ["-y", "mcp-discovery-api"],
-      "env": {
-        "SUPABASE_URL": "your-supabase-url",
-        "SUPABASE_SERVICE_ROLE_KEY": "your-service-role-key",
-        "OPENAI_API_KEY": "your-openai-api-key"
-      }
-    }
-  }
-}
-```
-
-## Tools
-
-### discover_mcp_server
-
-Find MCP servers matching a natural language requirement.
-
-**Input:**
-```json
-{
-  "need": "database with authentication",
-  "constraints": {
-    "max_latency_ms": 200,
-    "required_features": ["auth", "realtime"],
-    "exclude_servers": ["deprecated-server"]
-  },
-  "limit": 5
-}
-```
-
-**Output:**
+**Response:**
 ```json
 {
   "recommendations": [
     {
-      "server": "supabase-mcp-server",
-      "npm_package": "@supabase/mcp-server",
-      "install_command": "npx -y @supabase/mcp-server",
-      "confidence": 0.94,
-      "description": "Open source Firebase alternative...",
-      "capabilities": ["postgres", "auth", "storage", "realtime"],
-      "metrics": {
-        "avg_latency_ms": 120,
-        "uptime_pct": 99.9,
-        "last_checked": "2026-01-17T10:30:00Z"
-      },
-      "docs_url": "https://supabase.com/docs",
-      "github_url": "https://github.com/supabase/mcp-server"
+      "server": "gmail-server",
+      "name": "Gmail Server",
+      "install_command": "npx -y @anthropic/mcp-server-gmail",
+      "confidence": 0.52,
+      "description": "Gmail integration for MCP...",
+      "category": "communication"
     }
   ],
-  "total_found": 1,
-  "query_time_ms": 245
+  "total_found": 3,
+  "query_time_ms": 156
 }
 ```
 
-### get_server_metrics
+### Browse Categories
 
-Get detailed performance metrics for a specific MCP server.
+```bash
+curl https://mcp-discovery-two.vercel.app/api/v1/categories
+```
 
-**Input:**
+### List Servers by Category
+
+```bash
+curl "https://mcp-discovery-two.vercel.app/api/v1/servers?category=database&limit=10"
+```
+
+---
+
+## What's Indexed
+
+### 715+ MCP Servers from Multiple Sources
+
+| Source | Servers |
+|--------|---------|
+| Glama.ai | 785 |
+| NPM Registry | 1,000+ |
+| Official MCP Registry | 30 |
+| GitHub awesome-lists | 50+ |
+
+### 32 Categories
+
+| Category | Count | Category | Count |
+|----------|-------|----------|-------|
+| **Development** | 259 | Security | 17 |
+| **Automation** | 73 | Finance | 16 |
+| **AI** | 59 | Content | 14 |
+| **Productivity** | 48 | Research | 13 |
+| **Database** | 43 | Design | 12 |
+| Cloud | 26 | Scraping | 11 |
+| Monitoring | 24 | Media | 8 |
+| Communication | 21 | Translation | 6 |
+| Search | 20 | Social | 4 |
+| Blockchain | 18 | 3D | 5 |
+
+---
+
+## API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/health` | GET | API status + server count |
+| `/api/v1/discover` | POST | **Semantic search** - find servers by need |
+| `/api/v1/servers` | GET | List servers (with category filter) |
+| `/api/v1/servers/:slug` | GET | Get server details |
+| `/api/v1/categories` | GET | List all categories with counts |
+
+### Discover Request
+
 ```json
 {
-  "server_id": "postgres-server",
-  "time_range": "24h"
+  "need": "I need to work with GitHub repositories",
+  "limit": 5
 }
 ```
 
-**Output:**
+### Discover Response
+
 ```json
 {
-  "server": {
-    "id": "uuid",
-    "name": "PostgreSQL Server",
-    "slug": "postgres-server"
-  },
-  "metrics": {
-    "current": {
-      "latency_ms": 85,
-      "success_rate": 0.99,
-      "uptime_pct": 99.95,
-      "active_connections": 42
-    },
-    "history": [
-      {
-        "timestamp": "2026-01-16T10:00:00Z",
-        "latency_ms": 82,
-        "success_rate": 1.0,
-        "uptime_pct": 100
-      }
-    ]
+  "recommendations": [
+    {
+      "server": "github-server",
+      "name": "GitHub Server",
+      "npm_package": "@modelcontextprotocol/server-github",
+      "install_command": "npx -y @modelcontextprotocol/server-github",
+      "confidence": 0.65,
+      "description": "GitHub API integration for MCP...",
+      "category": "development",
+      "github_url": "https://github.com/modelcontextprotocol/servers",
+      "docs_url": "https://modelcontextprotocol.io/docs/servers/github"
+    }
+  ],
+  "total_found": 5,
+  "query_time_ms": 142
+}
+```
+
+---
+
+## Use Cases
+
+### 1. AI Coding Assistants (Cursor, Continue, Windsurf)
+
+```javascript
+// Agent discovers tools dynamically
+const tools = await fetch('https://mcp-discovery-two.vercel.app/api/v1/discover', {
+  method: 'POST',
+  body: JSON.stringify({ need: 'git operations' })
+});
+// Returns: git-server, github-server, gitlab-server
+```
+
+### 2. Autonomous Agents
+
+```python
+# Agent self-equips with needed capabilities
+needs = ["database", "file storage", "send notifications"]
+for need in needs:
+    servers = discover(need)
+    agent.install(servers[0].install_command)
+```
+
+### 3. MCP Server Directories & Dashboards
+
+```javascript
+// Build your own MCP directory
+const categories = await fetch('.../api/v1/categories');
+const servers = await fetch('.../api/v1/servers?category=database');
+```
+
+### 4. Claude Desktop / MCP Clients
+
+Add discovery capability to your MCP client:
+
+```json
+{
+  "mcpServers": {
+    "discovery": {
+      "command": "npx",
+      "args": ["-y", "mcp-discovery-api"]
+    }
   }
 }
 ```
 
-### compare_servers
+---
 
-Compare multiple MCP servers side-by-side.
+## Performance
 
-**Input:**
-```json
-{
-  "server_ids": ["postgres-server", "sqlite-server", "mongodb-server"],
-  "compare_by": ["latency", "uptime", "features"]
-}
+| Metric | Value |
+|--------|-------|
+| Servers indexed | 715+ |
+| Semantic search | ~1.5s (first call) |
+| Cached queries | **< 5ms** |
+| Text search fallback | ~200ms |
+| API uptime | 99.9% (Vercel) |
+
+---
+
+## Tech Stack
+
+- **Database:** Supabase (PostgreSQL + pgvector)
+- **Embeddings:** OpenAI text-embedding-3-small (1536 dims)
+- **API:** Vercel Serverless Functions
+- **Scraping:** DeepSeek API for intelligent extraction
+
+---
+
+## Self-Host
+
+### Environment Variables
+
+```bash
+SUPABASE_URL=your-supabase-url
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+OPENAI_API_KEY=your-openai-api-key
 ```
 
-**Output:**
-```json
-{
-  "servers": [
-    {
-      "id": "uuid",
-      "name": "PostgreSQL Server",
-      "slug": "postgres-server",
-      "capabilities": ["postgres", "sql", "database"],
-      "metrics": {
-        "latency_ms": 85,
-        "uptime_pct": 99.95,
-        "success_rate": 0.99
-      },
-      "ranking": {
-        "by_latency": 1,
-        "by_uptime": 1,
-        "by_features": 2
-      }
-    }
-  ]
-}
-```
-
-## Environment Variables
-
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `SUPABASE_URL` | Your Supabase project URL | Yes |
-| `SUPABASE_SERVICE_ROLE_KEY` | Supabase service role key | Yes |
-| `OPENAI_API_KEY` | OpenAI API key for embeddings | Yes |
-| `LOG_LEVEL` | Log level (debug, info, warn, error) | No |
-
-## Database Setup
-
-1. Create a new Supabase project at [supabase.com](https://supabase.com)
-
-2. Enable the pgvector extension in the SQL editor:
-   ```sql
-   CREATE EXTENSION IF NOT EXISTS vector;
-   ```
-
-3. Run the schema from `src/db/schema.sql` in the SQL editor
-
-4. Seed the initial data:
-   ```bash
-   npm run seed
-   npm run generate-embeddings
-   ```
-
-## Development
-
-### Setup
+### Run Locally
 
 ```bash
 git clone https://github.com/yksanjo/mcp-discovery.git
@@ -221,162 +246,55 @@ cd mcp-discovery
 npm install
 cp .env.example .env
 # Edit .env with your credentials
+npm run dev:api
 ```
 
-### Build
+### Deploy to Vercel
 
 ```bash
-npm run build
+vercel --prod
 ```
 
-### Run Locally
+---
 
-```bash
-npm run dev
-```
+## Roadmap
 
-### Test
+- [ ] Real-time metrics collection
+- [ ] Server health monitoring
+- [ ] User ratings & reviews
+- [ ] API key authentication
+- [ ] Webhook notifications for new servers
+- [ ] MCP server auto-testing
 
-```bash
-npm test
-```
+---
 
-### Seed Data
+## Contributing
 
-```bash
-npm run seed
-npm run generate-embeddings
-```
+We welcome contributions! Areas we need help:
 
-## Deployment
+1. **Add more servers** - Submit PRs to expand the index
+2. **Improve search** - Better ranking algorithms
+3. **Build integrations** - Cursor, Continue, Zed plugins
+4. **Documentation** - Guides and tutorials
 
-### Railway
+---
 
-1. Create a new project on Railway
-2. Connect your GitHub repository
-3. Add environment variables
-4. Deploy
+## Links
 
-### Docker
+- **Live API:** https://mcp-discovery-two.vercel.app
+- **Health Check:** https://mcp-discovery-two.vercel.app/health
+- **Categories:** https://mcp-discovery-two.vercel.app/api/v1/categories
+- [Model Context Protocol](https://modelcontextprotocol.io/)
+- [MCP Servers Repository](https://github.com/modelcontextprotocol/servers)
 
-```bash
-docker build -t mcp-discovery .
-docker run -e SUPABASE_URL=... -e SUPABASE_SERVICE_ROLE_KEY=... -e OPENAI_API_KEY=... mcp-discovery
-```
-
-## Quick Start
-
-### Test it instantly
-
-```bash
-# Use the CLI
-npx mcp-discovery-api search "database server"
-
-# Or use the API directly
-curl https://mcp-discovery-production.up.railway.app/api/v1/discover \
-  -H "Content-Type: application/json" \
-  -d '{"need": "email automation", "limit": 5}'
-```
-
-## Example Usage
-
-```
-User: "I need to store user profiles with authentication"
-
-Claude calls: discover_mcp_server({ need: "store user profiles with authentication" })
-
-Returns: Supabase MCP server with 0.94 confidence
-
-Claude: "I recommend the Supabase MCP server. It provides PostgreSQL database
-with built-in authentication, real-time subscriptions, and row-level security.
-
-To install: npx -y @supabase/mcp-server"
-```
-
-## API Access
-
-**Hosted API**: `https://mcp-discovery-production.up.railway.app`
-
-| Tier | Price | Queries/Month | Features |
-|------|-------|---------------|----------|
-| Free | $0 | 100 | Basic discovery, Server info |
-| Pro | $29/mo | 10,000 | All free features, Performance metrics, Priority support |
-| Enterprise | Custom | Unlimited | All pro features, SLA, Custom integrations |
-
-**Get an API key:**
-```bash
-curl -X POST https://mcp-discovery-production.up.railway.app/api/v1/keys \
-  -H "Content-Type: application/json" \
-  -d '{"email": "you@example.com"}'
-```
-
-## Distribution Strategy
-
-### Platform Integrations
-
-**Priority targets:**
-
-1. **Cursor** - Aggressively building MCP support
-   - Contact: team@cursor.com
-   - Pitch: "Built-in MCP discovery for your users"
-
-2. **Continue.dev** - Open source, easier entry
-   - Open GitHub issue proposing integration
-   - Submit PR adding discovery tool
-
-3. **Zed Editor** - Growing fast, MCP-friendly
-
-### Content & SEO
-
-Planned pages:
-- `/servers` - Full MCP server directory
-- `/servers/database` - Category pages
-- `/guides/choosing-mcp-server` - Educational content
-- `/compare/[server-a-vs-server-b]` - Comparison pages
-
-### MCP Registry Submission
-
-PR submitted to: https://github.com/modelcontextprotocol/servers
-
-## Architecture
-
-```
-┌─────────────────────────────────────┐
-│   AI Agent (Claude, Cursor, etc)   │
-│   Working on user task              │
-└────────────┬────────────────────────┘
-             │
-             │ Calls: discover_mcp_server(need)
-             ↓
-┌─────────────────────────────────────┐
-│   MCP DISCOVERY SERVER              │
-│   mcp-discovery-api              │
-│   - Semantic capability matching    │
-│   - Performance ranking             │
-│   - Returns structured metadata     │
-└────────────┬────────────────────────┘
-             │
-             │ Queries database
-             ↓
-┌─────────────────────────────────────┐
-│   SUPABASE (PostgreSQL + pgvector) │
-│   - MCP servers registry            │
-│   - Capabilities index              │
-│   - Performance metrics             │
-│   - Embeddings for search           │
-└─────────────────────────────────────┘
-```
+---
 
 ## License
 
 MIT
 
-## Contributing
+---
 
-Contributions are welcome! Please open an issue or submit a pull request.
-
-## Links
-
-- [Model Context Protocol](https://modelcontextprotocol.io/)
-- [MCP Servers Repository](https://github.com/modelcontextprotocol/servers)
-- [Supabase](https://supabase.com)
+<p align="center">
+  <b>715+ MCP Servers. One API. Built for AI Agents.</b>
+</p>

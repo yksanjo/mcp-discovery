@@ -1,3 +1,6 @@
+import { config } from 'dotenv';
+config();
+
 import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { handleDiscover } from './tools/discover.js';
 import { handleGetMetrics } from './tools/metrics.js';

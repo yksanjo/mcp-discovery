@@ -31,3 +31,4 @@ coverage/
 # Cache
 .npm
 .eslintcache
+.vercel

@@ -1,4 +1,5 @@
 import OpenAI from 'openai';
+import { getCachedEmbedding, setCachedEmbedding } from './cache.js';
 
 let openaiClient: OpenAI | null = null;
 
@@ -20,15 +21,28 @@ function getOpenAIClient(): OpenAI {
 }
 
 export async function generateEmbedding(text: string): Promise<number[]> {
+  const trimmed = text.trim();
+
+  // Check cache first
+  const cached = getCachedEmbedding(trimmed);
+  if (cached) {
+    return cached;
+  }
+
   const openai = getOpenAIClient();
 
   const response = await openai.embeddings.create({
     model: 'text-embedding-3-small',
-    input: text.trim(),
+    input: trimmed,
     dimensions: 1536,
   });
 
-  return response.data[0].embedding;
+  const embedding = response.data[0].embedding;
+
+  // Cache the result
+  setCachedEmbedding(trimmed, embedding);
+
+  return embedding;
 }
 
 export async function generateEmbeddings(texts: string[]): Promise<number[][]> {
