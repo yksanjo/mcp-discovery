@@ -5,9 +5,35 @@
 [![Servers](https://img.shields.io/badge/MCP%20Servers-14,000+-blue)](https://mcp-discovery-two.vercel.app)
 [![API](https://img.shields.io/badge/API-Live-green)](https://mcp-discovery-two.vercel.app/health)
 [![Built For](https://img.shields.io/badge/Built%20For-AI%20Agents-purple)](https://mcp-discovery-two.vercel.app/api/v1/discover)
+[![LangChain](https://img.shields.io/badge/LangChain-Integration-orange)](./langchain/)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
 **Live API:** https://mcp-discovery-two.vercel.app
+
+---
+
+## LangChain Integration - NEW
+
+Enable your LangChain agents to dynamically discover MCP servers based on task requirements.
+
+```python
+from langchain_mcp_discovery import MCPDiscoveryTool
+
+# Create the discovery tool
+discovery = MCPDiscoveryTool()
+
+# Agent discovers tools dynamically
+result = discovery.run("I need to query a PostgreSQL database")
+# Returns: Server name, install command, performance metrics
+```
+
+**Features:**
+- Semantic search across 14,000+ MCP servers
+- Performance metrics (latency, uptime)
+- Ready-to-use install commands
+- Full LangChain BaseTool compatibility
+
+See [`langchain/`](./langchain/) for full documentation, examples, and tests.
 
 ---
 
