@@ -1,7 +1,7 @@
 {
   "name": "mcp-discovery-api",
-  "version": "1.0.0",
-  "description": "Agent-native discovery and routing layer for MCP servers. Enables AI agents to autonomously discover, evaluate, and select the best MCP servers for their tasks.",
+  "version": "1.1.0",
+  "description": "Agent-native discovery and routing layer for MCP servers. Enables AI agents to autonomously discover, evaluate, and select the best MCP servers for their tasks. Integrated with LangChain and AutoGPT (Feb 2026).",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -37,7 +37,10 @@
     "discovery",
     "llm",
     "claude",
-    "anthropic"
+    "anthropic",
+    "langchain",
+    "autogpt",
+    "tool-discovery"
   ],
   "author": "Yoshi",
   "license": "MIT",
@@ -51,8 +54,11 @@
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0",
     "@supabase/supabase-js": "^2.89.0",
+    "@types/express": "^5.0.6",
+    "@types/uuid": "^10.0.0",
     "dotenv": "^17.2.3",
     "openai": "^4.70.0",
+    "uuid": "^13.0.0",
     "zod": "^3.23.0"
   },
   "devDependencies": {

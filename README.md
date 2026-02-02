@@ -6,7 +6,11 @@
 [![API](https://img.shields.io/badge/API-Live-green)](https://mcp-discovery-two.vercel.app/health)
 [![Built For](https://img.shields.io/badge/Built%20For-AI%20Agents-purple)](https://mcp-discovery-two.vercel.app/api/v1/discover)
 [![LangChain](https://img.shields.io/badge/LangChain-Integration-orange)](./langchain/)
+[![AutoGPT](https://img.shields.io/badge/AutoGPT-Integration-red)](https://github.com/Significant-Gravitas/AutoGPT/issues/11793)
 [![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+
+> **Last Updated:** February 2, 2026  
+> **Citation:** [AutoGPT Issue #11793](https://github.com/Significant-Gravitas/AutoGPT/issues/11793) - Dynamic tool discovery integration proposal
 
 **Live API:** https://mcp-discovery-two.vercel.app
 
@@ -34,6 +38,28 @@ result = discovery.run("I need to query a PostgreSQL database")
 - Full LangChain BaseTool compatibility
 
 See [`langchain/`](./langchain/) for full documentation, examples, and tests.
+
+---
+
+## AutoGPT Integration - NEW (Feb 2026)
+
+MCP Discovery is now integrated with [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT)! 
+
+AutoGPT agents can dynamically discover MCP servers using native workflow blocks:
+
+```
+[MCP Discovery Block] 
+  Input: "I need PostgreSQL database access"
+  Output: Server recommendations with install commands
+```
+
+**Features:**
+- Native AutoGPT workflow blocks (`MCPDiscoveryBlock`, `MCPDiscoveryCategoriesBlock`)
+- Optional integration (no hard dependencies)
+- Configurable API endpoint for self-hosting
+- Graceful error handling
+
+**Status:** PR submitted - [Issue #11793](https://github.com/Significant-Gravitas/AutoGPT/issues/11793)
 
 ---
 
@@ -304,6 +330,26 @@ As AI agents become more autonomous, they need to discover their own tools. MCP 
 - **Categories:** https://mcp-discovery-two.vercel.app/api/v1/categories
 - [Model Context Protocol](https://modelcontextprotocol.io/)
 - [Anthropic MCP Servers](https://github.com/modelcontextprotocol/servers)
+
+---
+
+## Citation
+
+If you use MCP Discovery in your research or project, please cite:
+
+```bibtex
+@software{mcp_discovery,
+  title = {MCP Discovery: Dynamic Tool Discovery for AI Agents},
+  author = {yksanjo},
+  year = {2026},
+  url = {https://github.com/yksanjo/mcp-discovery},
+  note = {Last updated: February 2, 2026}
+}
+```
+
+### Related Publications & Issues
+
+- **AutoGPT Integration Proposal**: [GitHub Issue #11793](https://github.com/Significant-Gravitas/AutoGPT/issues/11793) - Dynamic tool discovery integration for autonomous agents (Feb 2026)
 
 ---
 

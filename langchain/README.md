@@ -2,6 +2,9 @@
 
 A LangChain tool that enables agents to dynamically discover Model Context Protocol (MCP) servers based on their task requirements.
 
+> **Last Updated:** February 2, 2026  
+> **Related:** [AutoGPT Integration #11793](https://github.com/Significant-Gravitas/AutoGPT/issues/11793)
+
 ## Overview
 
 The MCP Discovery tool provides semantic search over **14,000+ indexed MCP servers**, allowing LangChain agents to:
@@ -217,3 +220,4 @@ MIT License - See LICENSE file for details
 - Built on top of the [Model Context Protocol](https://github.com/mcp)
 - Powered by [MCP Discovery API](https://github.com/yksanjo/mcp-discovery)
 - Integrates with [LangChain](https://github.com/langchain-ai/langchain)
+- [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT) integration contributed Feb 2026 ([Issue #11793](https://github.com/Significant-Gravitas/AutoGPT/issues/11793))
