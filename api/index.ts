@@ -4,6 +4,7 @@ config();
 
 import { createClient } from '@supabase/supabase-js';
 import OpenAI from 'openai';
+import { v4 as uuidv4 } from 'uuid';
 
 // Initialize clients
 const supabase = createClient(
@@ -270,10 +271,130 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       });
     }
 
+    // ==================== MCP CURATOR ROUTES ====================
+    
+    // MCP Curator health check
+    if (path === '/api/v1/curator/health' && req.method === 'GET') {
+      try {
+        const { error } = await supabase.from('mcp_servers').select('count', { count: 'exact', head: true });
+        
+        if (error) {
+          return res.status(500).json({ 
+            status: 'unhealthy',
+            error: 'Database connection failed',
+            details: error.message
+          });
+        }
+
+        return res.status(200).json({
+          status: 'healthy',
+          service: 'MCP Curator API',
+          version: '1.0.0',
+          timestamp: new Date().toISOString()
+        });
+      } catch (error) {
+        return res.status(500).json({
+          status: 'unhealthy',
+          error: 'Internal server error',
+          details: error instanceof Error ? error.message : 'Unknown error'
+        });
+      }
+    }
+
+    // MCP Curator route endpoint (public demo)
+    if (path === '/api/v1/curator/recommend' && req.method === 'POST') {
+      try {
+        const { task } = req.body;
+        
+        if (!task) {
+          return res.status(400).json({ error: 'Task description is required' });
+        }
+
+        // For demo, return mock data
+        const recommendations = getMockRecommendations(task);
+        
+        return res.status(200).json({
+          recommendations,
+          note: 'Demo mode - using mock data. Get API key for real routing.'
+        });
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        return res.status(400).json({ error: message });
+      }
+    }
+
     // 404
     return res.status(404).json({ error: 'Not found', path });
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
     return res.status(500).json({ error: message });
   }
+}
+
+// Mock recommendations function for demo
+function getMockRecommendations(task: string): any[] {
+  const taskLower = task.toLowerCase();
+  
+  const mockServers = [
+    {
+      name: 'postgres-mcp',
+      slug: 'postgres-mcp',
+      install_command: 'npm install -g postgres-mcp',
+      estimated_cost: 0.0025,
+      estimated_latency_ms: 150,
+      reliability_score: 0.98,
+      routing_reason: 'Best for database queries'
+    },
+    {
+      name: 'github-mcp',
+      slug: 'github-mcp',
+      install_command: 'npm install -g github-mcp',
+      estimated_cost: 0.0000,
+      estimated_latency_ms: 300,
+      reliability_score: 0.95,
+      routing_reason: 'Free for public repositories'
+    },
+    {
+      name: 'openai-mcp',
+      slug: 'openai-mcp',
+      install_command: 'npm install -g openai-mcp',
+      estimated_cost: 0.0150,
+      estimated_latency_ms: 800,
+      reliability_score: 0.99,
+      routing_reason: 'Most reliable for AI tasks'
+    },
+    {
+      name: 'filesystem-mcp',
+      slug: 'filesystem-mcp',
+      install_command: 'npm install -g filesystem-mcp',
+      estimated_cost: 0.0000,
+      estimated_latency_ms: 50,
+      reliability_score: 1.00,
+      routing_reason: 'Free and fastest for local files'
+    },
+    {
+      name: 'stripe-mcp',
+      slug: 'stripe-mcp',
+      install_command: 'npm install -g stripe-mcp',
+      estimated_cost: 0.0300,
+      estimated_latency_ms: 200,
+      reliability_score: 0.99,
+      routing_reason: 'Enterprise-grade payment processing'
+    }
+  ];
+
+  // Simple keyword matching for demo
+  if (taskLower.includes('database') || taskLower.includes('sql') || taskLower.includes('postgres')) {
+    return [mockServers[0], mockServers[3], mockServers[1]];
+  } else if (taskLower.includes('github') || taskLower.includes('repo') || taskLower.includes('git')) {
+    return [mockServers[1], mockServers[3], mockServers[0]];
+  } else if (taskLower.includes('ai') || taskLower.includes('openai') || taskLower.includes('gpt')) {
+    return [mockServers[2], mockServers[1], mockServers[3]];
+  } else if (taskLower.includes('file') || taskLower.includes('read') || taskLower.includes('write')) {
+    return [mockServers[3], mockServers[0], mockServers[1]];
+  } else if (taskLower.includes('stripe') || taskLower.includes('payment') || taskLower.includes('charge')) {
+    return [mockServers[4], mockServers[0], mockServers[2]];
+  }
+
+  return mockServers.slice(0, 3);
 }

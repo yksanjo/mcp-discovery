@@ -1,0 +1,19 @@
+{
+  "total_servers": 18366,
+  "last_updated": "2026-02-09T14:14:31.680649",
+  "sources": {
+    "glama": 17140,
+    "smithery": 0,
+    "official": 30,
+    "npm": 2688,
+    "github_search": 0,
+    "github_topics": 539,
+    "awesome": 2047,
+    "pypi": 0,
+    "mcp_so": 0,
+    "pulsemcp": 0
+  },
+  "categories": {
+    "other": 18366
+  }
+}

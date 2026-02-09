@@ -1,0 +1,15 @@
+{
+  "total_servers": 5468,
+  "last_updated": "2026-02-09T14:35:49.908246",
+  "sources": {
+    "glama": 3990,
+    "smithery": 0,
+    "official": 30,
+    "npm": 653,
+    "github": 0,
+    "awesome": 1500
+  },
+  "categories": {
+    "other": 5468
+  }
+}

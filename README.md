@@ -1,245 +1,134 @@
-# MCP Discovery
+# 🚨 MCP DISCOVERY 2.0 🚨
 
-### The World's Largest MCP Server Index - 14,000+ Servers
+<p align="center">
+  <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" width="300">
+</p>
 
-[![Servers](https://img.shields.io/badge/MCP%20Servers-14,000+-blue)](https://mcp-discovery-two.vercel.app)
-[![API](https://img.shields.io/badge/API-Live-green)](https://mcp-discovery-two.vercel.app/health)
-[![Built For](https://img.shields.io/badge/Built%20For-AI%20Agents-purple)](https://mcp-discovery-two.vercel.app/api/v1/discover)
-[![LangChain](https://img.shields.io/badge/LangChain-Integration-orange)](./langchain/)
-[![AutoGPT](https://img.shields.io/badge/AutoGPT-Integration-red)](https://github.com/Significant-Gravitas/AutoGPT/issues/11793)
-[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
+<h1 align="center">
+  🔥 THE WORLD'S MOST COMPLETE MCP SERVER INDEX 🔥
+</h1>
 
-> **Last Updated:** February 2, 2026  
-> **Citation:** [AutoGPT Issue #11793](https://github.com/Significant-Gravitas/AutoGPT/issues/11793) - Dynamic tool discovery integration proposal
+<p align="center">
+  <a href="#"><img src="https://img.shields.io/badge/Servers-5,000%2B-red?style=for-the-badge&logo=fire"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Status-LIVE-brightgreen?style=for-the-badge"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Built%20For-AI%20AGENTS-purple?style=for-the-badge&logo=robot"></a>
+</p>
 
-**Live API:** https://mcp-discovery-two.vercel.app
-
----
-
-## LangChain Integration - NEW
-
-Enable your LangChain agents to dynamically discover MCP servers based on task requirements.
-
-```python
-from langchain_mcp_discovery import MCPDiscoveryTool
-
-# Create the discovery tool
-discovery = MCPDiscoveryTool()
-
-# Agent discovers tools dynamically
-result = discovery.run("I need to query a PostgreSQL database")
-# Returns: Server name, install command, performance metrics
-```
-
-**Features:**
-- Semantic search across 14,000+ MCP servers
-- Performance metrics (latency, uptime)
-- Ready-to-use install commands
-- Full LangChain BaseTool compatibility
-
-See [`langchain/`](./langchain/) for full documentation, examples, and tests.
+<p align="center">
+  <b>⚠️ WARNING: EXTREME UTILITY DETECTED ⚠️</b><br>
+  <i>Your agents will NEVER ask "which MCP server should I use?" again.</i>
+</p>
 
 ---
 
-## AutoGPT Integration - NEW (Feb 2026)
+## 🎬 What Is This Madness?
 
-MCP Discovery is now integrated with [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT)! 
+<p align="center">
+  <img src="https://media.giphy.com/media/l0HlNQ03J5JxX6lva/giphy.gif" width="400">
+</p>
 
-AutoGPT agents can dynamically discover MCP servers using native workflow blocks:
+**MCP Discovery** is like Google, but for AI agents looking for tools. Instead of searching for 10 minutes, your agent queries our API and gets the perfect MCP server in **50ms**. 
 
-```
-[MCP Discovery Block] 
-  Input: "I need PostgreSQL database access"
-  Output: Server recommendations with install commands
-```
+**Think about it:**
+- Human: "Help me analyze my GitHub repos"
+- Agent: *calls API* → *gets github-server* → *installs* → *DONE*
 
-**Features:**
-- Native AutoGPT workflow blocks (`MCPDiscoveryBlock`, `MCPDiscoveryCategoriesBlock`)
-- Optional integration (no hard dependencies)
-- Configurable API endpoint for self-hosting
-- Graceful error handling
-
-**Status:** PR submitted - [Issue #11793](https://github.com/Significant-Gravitas/AutoGPT/issues/11793)
+No questions. No back-and-forth. Just pure autonomous tool discovery.
 
 ---
 
-## Not for Humans. Built for Agents.
+## 🚀 Quick Start (Copy-Paste and GO)
 
-MCP Discovery is **NOT a website for humans to browse**. It's a machine-to-machine API designed for AI agents to programmatically discover tools.
-
-With **14,000+ MCP servers indexed**, no human could reasonably browse this directory. But an AI agent can query it in milliseconds and find exactly what it needs.
-
-```
-Human: "Help me analyze my GitHub repos and save to a database"
-
-Agent thinks: "I need GitHub access and database storage"
-
-Agent calls: POST /api/v1/discover {"need": "github api access"}
-Agent calls: POST /api/v1/discover {"need": "database storage"}
-
-Agent receives: github-server, sqlite-server, postgres-server
-Agent installs tools and completes the task autonomously
-```
-
-**The agent never asks the human which MCP server to use. It just figures it out.**
-
----
-
-## Why 14,000+ Servers Matters
-
-| Without MCP Discovery | With MCP Discovery |
-|----------------------|-------------------|
-| Agent asks human: "Which MCP server should I use?" | Agent discovers tools autonomously |
-| Human searches docs for 10 minutes | Agent queries API in 50ms |
-| Limited to servers human knows about | Access to **14,000+ servers** |
-| Manual tool selection | Semantic search: "I need X" |
-
-**Scale matters.** The more servers indexed, the more capable your agent becomes.
-
----
-
-## Quick Start (For Agent Developers)
-
-### Semantic Search - Find Any Tool
+### 🔮 Semantic Search (The Magic Endpoint)
 
 ```bash
+# Find any tool with natural language
 curl -X POST https://mcp-discovery-two.vercel.app/api/v1/discover \
   -H "Content-Type: application/json" \
   -d '{"need": "send slack notifications"}'
 ```
 
-**Response:**
+**Returns:**
 ```json
 {
   "recommendations": [
     {
       "server": "slack-server",
-      "name": "Slack MCP Server",
+      "name": "Slack MCP Server", 
       "install_command": "npx -y @anthropic/mcp-server-slack",
-      "confidence": 0.72,
-      "description": "Slack integration for MCP...",
-      "category": "communication"
+      "confidence": 0.95,
+      "description": "Official Slack integration for MCP"
     }
-  ],
-  "total_found": 5,
-  "query_time_ms": 48
+  ]
 }
 ```
 
-### List All Categories
-
-```bash
-curl https://mcp-discovery-two.vercel.app/api/v1/categories
-```
-
-### Browse by Category
-
-```bash
-curl "https://mcp-discovery-two.vercel.app/api/v1/servers?category=database&limit=50"
-```
+<p align="center">
+  <img src="https://media.giphy.com/media/3o7qE1YN7aPRx0p6Wk/giphy.gif" width="250">
+</p>
 
 ---
 
-## Index Statistics
+## 📊 The Numbers (They Don't Lie)
 
-### 14,000+ MCP Servers from All Major Sources
-
-| Source | Servers Indexed |
-|--------|-----------------|
-| **Glama.ai** | 13,273 |
-| NPM Registry | 500+ |
-| Official MCP Registry | 50+ |
-| GitHub Repositories | 200+ |
-
-### Categories (21+)
-
-| Category | Count | Category | Count |
-|----------|-------|----------|-------|
-| **Other/Misc** | 10,000+ | Communication | 500+ |
-| **Development** | 1,500+ | Blockchain | 300+ |
-| **Automation** | 800+ | Finance | 200+ |
-| **AI/ML** | 700+ | Design | 150+ |
-| **Database** | 600+ | Media | 100+ |
-| **Cloud** | 400+ | 3D | 50+ |
-
-*Categories are auto-assigned. "Other" contains specialized tools.*
+| Metric | Value |
+|--------|-------|
+| **Total Servers** | 5,000+ and climbing 🚀 |
+| **API Response Time** | ~50ms (faster than you can blink) |
+| **Categories** | 20+ (from AI to 3D) |
+| **Sources** | Glama, NPM, Official Registry, GitHub |
 
 ---
 
-## API Reference
+## 🎮 How It Works (The Cool Part)
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/health` | GET | API status + total server count |
-| `/api/v1/discover` | POST | **Semantic search** - natural language queries |
-| `/api/v1/servers` | GET | List servers (paginated, filterable) |
-| `/api/v1/servers/:slug` | GET | Get specific server details |
-| `/api/v1/categories` | GET | List all categories with counts |
+<p align="center">
+  <img src="https://media.giphy.com/media/26ufnwz3wDUli7GD6/giphy.gif" width="350">
+</p>
 
-### POST /api/v1/discover
-
-The primary endpoint for agents. Accepts natural language queries.
-
-**Request:**
-```json
-{
-  "need": "I need to read and write files on the local filesystem",
-  "limit": 10
-}
+### Without MCP Discovery:
+```
+User: "I need to access a database"
+Agent: "Which database? PostgreSQL? MySQL? MongoDB? Redis?"
+User: "Uh... PostgreSQL I guess?"
+Agent: "Which MCP server? There are 50 different ones..."
+User: *googles for 10 minutes*
 ```
 
-**Response:**
-```json
-{
-  "recommendations": [
-    {
-      "server": "filesystem-server",
-      "name": "Filesystem Server",
-      "npm_package": "@modelcontextprotocol/server-filesystem",
-      "install_command": "npx -y @modelcontextprotocol/server-filesystem",
-      "confidence": 0.85,
-      "description": "Secure file operations for MCP...",
-      "category": "development",
-      "github_url": "https://github.com/modelcontextprotocol/servers"
-    }
-  ],
-  "total_found": 10,
-  "query_time_ms": 52
-}
+### With MCP Discovery:
 ```
+User: "I need to access a database"
+Agent: *calls API* *gets postgres-server* *installs* *DONE*
+User: 😎
+```
+
+**Time saved:** 9 minutes 59.95 seconds
 
 ---
 
-## Integration Examples
+## 🛠️ Integration Examples
 
-### Autonomous Agent (Python)
-
+### Python Agents
 ```python
 import requests
 
-class AutonomousAgent:
-    def discover_tools(self, task_description: str) -> list:
-        """Agent discovers needed tools without human intervention"""
+class AgentThatKnowsWhatsUp:
+    def discover_tool(self, need: str):
         response = requests.post(
             "https://mcp-discovery-two.vercel.app/api/v1/discover",
-            json={"need": task_description, "limit": 5}
+            json={"need": need, "limit": 3}
         )
         return response.json()["recommendations"]
 
-    def execute_task(self, user_request: str):
-        # Agent analyzes request and discovers tools
-        tools = self.discover_tools(user_request)
-
-        # Agent installs first recommended tool
-        install_cmd = tools[0]["install_command"]
-        # ... agent proceeds autonomously
+# Usage
+agent = AgentThatKnowsWhatsUp()
+tools = agent.discover_tool("I need to query a PostgreSQL database")
+# Returns: postgres-server with install command ready to go!
 ```
 
-### AI Coding Assistant (JavaScript)
-
+### JavaScript Agents  
 ```javascript
-// Agent middleware for Cursor/Continue/Windsurf
-async function discoverMCPServer(need) {
+async function discoverMCPTool(need) {
   const response = await fetch('https://mcp-discovery-two.vercel.app/api/v1/discover', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -248,117 +137,133 @@ async function discoverMCPServer(need) {
   return response.json();
 }
 
-// Usage in agent loop
-const tools = await discoverMCPServer('database for storing user preferences');
+// Your agent just got smarter
+discoverMCPTool("database for storing user preferences");
 // Returns: sqlite-server, redis-server, postgres-server
 ```
 
-### Claude Desktop Integration
+---
 
-Add discovery as an MCP server itself:
+## 📦 Database Downloads
 
-```json
-{
-  "mcpServers": {
-    "discovery": {
-      "command": "npx",
-      "args": ["-y", "mcp-discovery-api"]
-    }
-  }
-}
-```
+Want the raw data? We got you:
+
+| Format | File | Size |
+|--------|------|------|
+| JSON | `data/mcp_servers_complete.json` | ~3MB |
+| CSV | `data/mcp_servers_complete.csv` | ~2MB |
+| Markdown | `data/MCP_SERVERS_COMPLETE.md` | ~25KB |
 
 ---
 
-## Performance
+## 🌟 API Reference
 
-| Metric | Value |
-|--------|-------|
-| **Servers indexed** | 14,000+ |
-| **Semantic search** | ~50-200ms |
-| **Cached queries** | < 5ms |
-| **API uptime** | 99.9% (Vercel Edge) |
-| **Index freshness** | Updated daily |
-
----
-
-## Tech Stack
-
-- **Database:** Supabase (PostgreSQL + pgvector for semantic search)
-- **Embeddings:** OpenAI text-embedding-3-small (1536 dimensions)
-- **API:** Vercel Serverless Functions (Edge-optimized)
-- **Scraping:** Direct API integration + DeepSeek for extraction
+| Endpoint | Method | What It Does |
+|----------|--------|--------------|
+| `/health` | GET | Check if we're alive (spoiler: we are) |
+| `/api/v1/discover` | POST | **THE MAGIC** - semantic search |
+| `/api/v1/servers` | GET | Browse all servers |
+| `/api/v1/categories` | GET | Get all categories |
+| `/api/v1/servers/:slug` | GET | Get specific server |
 
 ---
 
-## Self-Host
+## 🎭 Categories (Pick Your Poison)
 
-### Environment Variables
+<p align="center">
+  <img src="https://media.giphy.com/media/l0HlNd1sgO7RkYQEw/giphy.gif" width="300">
+</p>
+
+- 🗄️ **Database** - PostgreSQL, SQLite, MongoDB, Redis, and MORE
+- 🤖 **AI/ML** - LLM integrations, model serving, inference
+- 💻 **Development** - Git, GitHub, code analysis
+- ☁️ **Cloud** - AWS, GCP, Azure integrations  
+- 💬 **Communication** - Slack, Discord, email
+- 🔒 **Security** - Auth, encryption, monitoring
+- 📊 **Monitoring** - Metrics, logging, observability
+- 🎨 **Design** - Image processing, 3D, creative tools
+- 💰 **Finance** - Crypto, trading, payments
+- 🔍 **Search** - Elasticsearch, semantic search
+- ⚙️ **Automation** - CI/CD, workflows, bots
+- And 10+ more!
+
+---
+
+## 🔥 Featured Servers
+
+### The Classics (Everyone Needs These)
+
+| Server | Install | Why You Want It |
+|--------|---------|-----------------|
+| **filesystem** | `npx -y @modelcontextprotocol/server-filesystem` | Read/write local files |
+| **postgres** | `npx -y @modelcontextprotocol/server-postgres` | Database access |
+| **github** | `npx -y @modelcontextprotocol/server-github` | GitHub API access |
+| **slack** | `npx -y @anthropic/mcp-server-slack` | Slack notifications |
+| **sqlite** | `npx -y @modelcontextprotocol/server-sqlite` | Lightweight DB |
+
+---
+
+## 🚦 Self-Hosting (For the Brave)
 
 ```bash
-SUPABASE_URL=your-supabase-url
-SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-OPENAI_API_KEY=your-openai-api-key
-```
-
-### Deploy
-
-```bash
+# Clone it
 git clone https://github.com/yksanjo/mcp-discovery.git
 cd mcp-discovery
+
+# Install dependencies
 npm install
+
+# Configure
 cp .env.example .env
-# Configure your credentials
+# Edit .env with your Supabase & OpenAI keys
+
+# Deploy
 vercel --prod
 ```
 
----
-
-## The Vision
-
-As AI agents become more autonomous, they need to discover their own tools. MCP Discovery is the infrastructure layer that enables this.
-
-**Today:** 14,000+ servers indexed
-**Goal:** Every MCP server ever created, instantly discoverable
+**Requirements:**
+- Supabase (PostgreSQL + pgvector)
+- OpenAI API key (for embeddings)
+- Vercel account (for hosting)
 
 ---
 
-## Links
+## 🎯 The Vision
 
-- **Live API:** https://mcp-discovery-two.vercel.app
-- **Health Check:** https://mcp-discovery-two.vercel.app/health
-- **Categories:** https://mcp-discovery-two.vercel.app/api/v1/categories
-- [Model Context Protocol](https://modelcontextprotocol.io/)
-- [Anthropic MCP Servers](https://github.com/modelcontextprotocol/servers)
+<p align="center">
+  <img src="https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif" width="300">
+</p>
 
----
+**Today:** 5,000+ servers indexed  
+**Tomorrow:** Every MCP server ever created  
+**Next Week:** MCP servers discover OTHER MCP servers 🤯
 
-## Citation
-
-If you use MCP Discovery in your research or project, please cite:
-
-```bibtex
-@software{mcp_discovery,
-  title = {MCP Discovery: Dynamic Tool Discovery for AI Agents},
-  author = {yksanjo},
-  year = {2026},
-  url = {https://github.com/yksanjo/mcp-discovery},
-  note = {Last updated: February 2, 2026}
-}
-```
-
-### Related Publications & Issues
-
-- **AutoGPT Integration Proposal**: [GitHub Issue #11793](https://github.com/Significant-Gravitas/AutoGPT/issues/11793) - Dynamic tool discovery integration for autonomous agents (Feb 2026)
+The goal is simple: make AI agents truly autonomous by giving them access to every tool imaginable, instantly discoverable.
 
 ---
 
-## License
+## 🤝 Contributing
 
-MIT
+Found a new MCP server? Want to add your own?
+
+1. Fork this repo
+2. Add your server to `scripts/seed-data.ts`
+3. Submit a PR
+4. Become LEGENDARY
+
+---
+
+## 📝 License
+
+MIT - Do whatever you want, just don't blame us if your agent becomes TOO powerful 😉
 
 ---
 
 <p align="center">
-  <b>14,000+ MCP Servers. One API. Built for Machines.</b>
+  <b>⭐ Star this repo if your agent found it useful ⭐</b><br>
+  <i>Built with 🔥 by humans, for agents</i>
+</p>
+
+<p align="center">
+  <img src="https://media.giphy.com/media/26xBwdIuRJiAIq76g/giphy.gif" width="200">
 </p>
