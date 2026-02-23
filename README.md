@@ -1,5 +1,12 @@
 # mcp-discovery
 
+Production-grade project scaffold focused on reliability, maintainability, and fast onboarding.
+
+[![CI](https://img.shields.io/github/actions/workflow/status/yksanjo/mcp-discovery/ci.yml?branch=main&label=ci)](https://github.com/yksanjo/mcp-discovery/actions)
+![License](https://img.shields.io/github/license/yksanjo/mcp-discovery)
+![Last Commit](https://img.shields.io/github/last-commit/yksanjo/mcp-discovery)
+![Repo Size](https://img.shields.io/github/repo-size/yksanjo/mcp-discovery)
+
 ## Detailed Description
 
 mcp-discovery is maintained as an industry-grade software project with production-ready engineering practices.  
