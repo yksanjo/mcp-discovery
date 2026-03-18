@@ -4,7 +4,6 @@ config();
 
 import { createClient } from '@supabase/supabase-js';
 import OpenAI from 'openai';
-import { v4 as uuidv4 } from 'uuid';
 
 // Initialize clients
 const supabase = createClient(
@@ -36,6 +35,10 @@ function setCache(key: string, data: unknown, ttlMs = 300000) {
   cache.set(key, { data, expires: Date.now() + ttlMs });
 }
 
+function invalidateCache(key: string) {
+  cache.delete(key);
+}
+
 // Generate embedding with timeout
 async function generateEmbedding(text: string): Promise<number[]> {
   const cacheKey = `emb:${text.slice(0, 100)}`;
@@ -43,7 +46,7 @@ async function generateEmbedding(text: string): Promise<number[]> {
   if (cached) return cached as number[];
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 8000); // 8s timeout
+  const timeout = setTimeout(() => controller.abort(), 8000);
 
   try {
     const response = await getOpenAI().embeddings.create({
@@ -76,6 +79,21 @@ async function semanticSearch(query: string, limit = 5) {
   return data || [];
 }
 
+/**
+ * Compute a 0–100 trust score from verification status, uptime, and success rate.
+ * is_verified → 40 pts, uptime_pct → 40 pts, success_rate → 20 pts.
+ */
+function computeTrustScore(
+  isVerified: boolean,
+  uptimePct: number | null,
+  successRate: number | null
+): number {
+  const verifiedPts = isVerified ? 40 : 0;
+  const uptimePts = uptimePct != null ? (uptimePct / 100) * 40 : 0;
+  const successPts = successRate != null ? (successRate / 100) * 20 : 0;
+  return Math.round(verifiedPts + uptimePts + successPts);
+}
+
 // Handlers
 async function handleHealth(): Promise<object> {
   const { count } = await supabase
@@ -90,23 +108,31 @@ async function handleHealth(): Promise<object> {
   };
 }
 
-async function handleDiscover(body: { need: string; limit?: number }): Promise<object> {
+async function handleDiscover(body: {
+  need: string;
+  limit?: number;
+  force_refresh?: boolean;
+}): Promise<object> {
   const startTime = Date.now();
-  const { need, limit = 5 } = body;
+  const { need, limit = 5, force_refresh = false } = body;
 
   if (!need) {
     throw new Error('Missing required field: need');
   }
 
-  // Check cache
+  // Check cache unless caller explicitly requests fresh data
   const cacheKey = `search:${need}:${limit}`;
-  const cached = getCached(cacheKey);
-  if (cached) {
-    return {
-      ...(cached as object),
-      query_time_ms: Date.now() - startTime,
-      cached: true,
-    };
+  if (!force_refresh) {
+    const cached = getCached(cacheKey);
+    if (cached) {
+      return {
+        ...(cached as object),
+        query_time_ms: Date.now() - startTime,
+        cached: true,
+      };
+    }
+  } else {
+    invalidateCache(cacheKey);
   }
 
   try {
@@ -122,6 +148,12 @@ async function handleDiscover(body: { need: string; limit?: number }): Promise<o
       category: server.category,
       github_url: server.github_url,
       docs_url: server.docs_url,
+      is_verified: server.is_verified ?? false,
+      trust_score: computeTrustScore(
+        server.is_verified ?? false,
+        server.uptime_pct ?? null,
+        server.success_rate ?? null
+      ),
     }));
 
     const result = {
@@ -136,7 +168,7 @@ async function handleDiscover(body: { need: string; limit?: number }): Promise<o
     // Fallback to text search if semantic search fails
     const { data } = await supabase
       .from('mcp_servers')
-      .select('name, slug, npm_package, install_command, description, category, github_url, docs_url')
+      .select('name, slug, npm_package, install_command, description, category, github_url, docs_url, is_verified')
       .or(`name.ilike.%${need}%,description.ilike.%${need}%`)
       .limit(limit);
 
@@ -150,6 +182,8 @@ async function handleDiscover(body: { need: string; limit?: number }): Promise<o
       category: server.category,
       github_url: server.github_url,
       docs_url: server.docs_url,
+      is_verified: server.is_verified ?? false,
+      trust_score: computeTrustScore(server.is_verified ?? false, null, null),
     }));
 
     return {
@@ -178,7 +212,7 @@ async function handleGetServer(slug: string): Promise<object> {
 async function handleListServers(category?: string, limit = 20): Promise<object> {
   let query = supabase
     .from('mcp_servers')
-    .select('name, slug, description, category, install_command')
+    .select('name, slug, description, category, install_command, is_verified')
     .limit(limit);
 
   if (category) {
@@ -225,19 +259,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const path = url.pathname;
 
   try {
-    // Health check
     if (path === '/' || path === '/health') {
       const result = await handleHealth();
       return res.status(200).json(result);
     }
 
-    // Discover endpoint
     if (path === '/api/v1/discover' && req.method === 'POST') {
       const result = await handleDiscover(req.body);
       return res.status(200).json(result);
     }
 
-    // Get server by slug
     if (path.startsWith('/api/v1/servers/') && req.method === 'GET') {
       const slug = path.split('/').pop();
       if (slug) {
@@ -246,7 +277,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     }
 
-    // List servers
     if (path === '/api/v1/servers' && req.method === 'GET') {
       const category = url.searchParams.get('category') || undefined;
       const limit = parseInt(url.searchParams.get('limit') || '20');
@@ -254,13 +284,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(200).json(result);
     }
 
-    // Categories
     if (path === '/api/v1/categories' && req.method === 'GET') {
       const result = await handleCategories();
       return res.status(200).json(result);
     }
 
-    // Pricing info
     if (path === '/api/v1/pricing') {
       return res.status(200).json({
         tiers: {
@@ -272,17 +300,16 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     // ==================== MCP CURATOR ROUTES ====================
-    
-    // MCP Curator health check
+
     if (path === '/api/v1/curator/health' && req.method === 'GET') {
       try {
         const { error } = await supabase.from('mcp_servers').select('count', { count: 'exact', head: true });
-        
+
         if (error) {
-          return res.status(500).json({ 
+          return res.status(500).json({
             status: 'unhealthy',
             error: 'Database connection failed',
-            details: error.message
+            details: error.message,
           });
         }
 
@@ -290,32 +317,30 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           status: 'healthy',
           service: 'MCP Curator API',
           version: '1.0.0',
-          timestamp: new Date().toISOString()
+          timestamp: new Date().toISOString(),
         });
       } catch (error) {
         return res.status(500).json({
           status: 'unhealthy',
           error: 'Internal server error',
-          details: error instanceof Error ? error.message : 'Unknown error'
+          details: error instanceof Error ? error.message : 'Unknown error',
         });
       }
     }
 
-    // MCP Curator route endpoint (public demo)
     if (path === '/api/v1/curator/recommend' && req.method === 'POST') {
       try {
         const { task } = req.body;
-        
+
         if (!task) {
           return res.status(400).json({ error: 'Task description is required' });
         }
 
-        // For demo, return mock data
         const recommendations = getMockRecommendations(task);
-        
+
         return res.status(200).json({
           recommendations,
-          note: 'Demo mode - using mock data. Get API key for real routing.'
+          note: 'Demo mode - using mock data. Get API key for real routing.',
         });
       } catch (error) {
         const message = error instanceof Error ? error.message : String(error);
@@ -323,7 +348,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       }
     }
 
-    // 404
     return res.status(404).json({ error: 'Not found', path });
   } catch (error) {
     const message = error instanceof Error ? error.message : String(error);
@@ -331,10 +355,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 }
 
-// Mock recommendations function for demo
 function getMockRecommendations(task: string): any[] {
   const taskLower = task.toLowerCase();
-  
+
   const mockServers = [
     {
       name: 'postgres-mcp',
@@ -343,7 +366,7 @@ function getMockRecommendations(task: string): any[] {
       estimated_cost: 0.0025,
       estimated_latency_ms: 150,
       reliability_score: 0.98,
-      routing_reason: 'Best for database queries'
+      routing_reason: 'Best for database queries',
     },
     {
       name: 'github-mcp',
@@ -352,7 +375,7 @@ function getMockRecommendations(task: string): any[] {
       estimated_cost: 0.0000,
       estimated_latency_ms: 300,
       reliability_score: 0.95,
-      routing_reason: 'Free for public repositories'
+      routing_reason: 'Free for public repositories',
     },
     {
       name: 'openai-mcp',
@@ -361,7 +384,7 @@ function getMockRecommendations(task: string): any[] {
       estimated_cost: 0.0150,
       estimated_latency_ms: 800,
       reliability_score: 0.99,
-      routing_reason: 'Most reliable for AI tasks'
+      routing_reason: 'Most reliable for AI tasks',
     },
     {
       name: 'filesystem-mcp',
@@ -370,7 +393,7 @@ function getMockRecommendations(task: string): any[] {
       estimated_cost: 0.0000,
       estimated_latency_ms: 50,
       reliability_score: 1.00,
-      routing_reason: 'Free and fastest for local files'
+      routing_reason: 'Free and fastest for local files',
     },
     {
       name: 'stripe-mcp',
@@ -379,11 +402,10 @@ function getMockRecommendations(task: string): any[] {
       estimated_cost: 0.0300,
       estimated_latency_ms: 200,
       reliability_score: 0.99,
-      routing_reason: 'Enterprise-grade payment processing'
-    }
+      routing_reason: 'Enterprise-grade payment processing',
+    },
   ];
 
-  // Simple keyword matching for demo
   if (taskLower.includes('database') || taskLower.includes('sql') || taskLower.includes('postgres')) {
     return [mockServers[0], mockServers[3], mockServers[1]];
   } else if (taskLower.includes('github') || taskLower.includes('repo') || taskLower.includes('git')) {
