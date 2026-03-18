@@ -19,6 +19,23 @@ export interface SearchOptions {
   excludeServers?: string[];
 }
 
+/**
+ * Compute a 0–100 trust score from verification status, uptime, and success rate.
+ * - is_verified contributes up to 40 points
+ * - uptime_pct contributes up to 40 points
+ * - success_rate contributes up to 20 points
+ */
+function computeTrustScore(
+  isVerified: boolean,
+  uptimePct: number | null,
+  successRate: number | null
+): number {
+  const verifiedPoints = isVerified ? 40 : 0;
+  const uptimePoints = uptimePct != null ? (uptimePct / 100) * 40 : 0;
+  const successPoints = successRate != null ? (successRate / 100) * 20 : 0;
+  return Math.round(verifiedPoints + uptimePoints + successPoints);
+}
+
 export async function semanticSearch(
   query: string,
   options: SearchOptions = {}
@@ -58,19 +75,21 @@ export async function discoverServers(
 }> {
   const startTime = Date.now();
 
-  // Check cache first
+  // Check cache first (unless caller wants a fresh result)
   const cacheKey = { need: input.need, limit: input.limit, constraints: input.constraints };
-  const cached = getCachedSearch(input.need, cacheKey) as {
-    recommendations: ServerRecommendation[];
-    total_found: number;
-    query_time_ms: number;
-  } | null;
+  if (!input.force_refresh) {
+    const cached = getCachedSearch(input.need, cacheKey) as {
+      recommendations: ServerRecommendation[];
+      total_found: number;
+      query_time_ms: number;
+    } | null;
 
-  if (cached) {
-    return {
-      ...cached,
-      query_time_ms: Date.now() - startTime, // Update with actual cache hit time
-    };
+    if (cached) {
+      return {
+        ...cached,
+        query_time_ms: Date.now() - startTime, // reflect actual cache-hit time
+      };
+    }
   }
 
   const searchOptions: SearchOptions = {
@@ -105,7 +124,6 @@ export async function discoverServers(
             )
         );
         if (!hasAllRequired) {
-          // Return with lower confidence
           server.similarity *= 0.5;
         }
       }
@@ -118,6 +136,12 @@ export async function discoverServers(
       ) {
         server.similarity *= 0.7;
       }
+
+      const trustScore = computeTrustScore(
+        server.is_verified,
+        metrics?.uptime_pct ?? null,
+        metrics?.success_rate ?? null
+      );
 
       return {
         server: server.slug,
@@ -133,6 +157,8 @@ export async function discoverServers(
         },
         docs_url: server.docs_url,
         github_url: server.github_url,
+        is_verified: server.is_verified,
+        trust_score: trustScore,
       };
     })
   );
