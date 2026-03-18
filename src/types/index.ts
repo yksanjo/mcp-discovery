@@ -52,6 +52,8 @@ export interface DiscoverInput {
     exclude_servers?: string[];
   };
   limit?: number;
+  /** Skip cache and fetch fresh results from the discovery API */
+  force_refresh?: boolean;
 }
 
 export interface ServerRecommendation {
@@ -68,6 +70,13 @@ export interface ServerRecommendation {
   };
   docs_url: string | null;
   github_url: string | null;
+  /** Whether this server has been verified by the MCP Discovery team */
+  is_verified: boolean;
+  /**
+   * Trust score 0–100 computed from verification status, uptime, and
+   * success rate. Higher is more trustworthy.
+   */
+  trust_score: number;
 }
 
 export interface DiscoverOutput {
