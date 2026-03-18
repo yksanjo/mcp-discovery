@@ -6,7 +6,7 @@ import type { DiscoverOutput } from '../types/index.js';
 export const discoverToolDefinition = {
   name: 'discover_mcp_server',
   description:
-    'Find MCP servers matching a natural language requirement. Returns ranked recommendations with capabilities, metrics, and installation commands.',
+    'Find MCP servers matching a natural language requirement. Returns ranked recommendations with capabilities, metrics, trust scores, and installation commands.',
   inputSchema: {
     type: 'object' as const,
     properties: {
@@ -39,6 +39,11 @@ export const discoverToolDefinition = {
         type: 'number',
         description: 'Maximum number of results to return (default: 5, max: 20)',
       },
+      force_refresh: {
+        type: 'boolean',
+        description:
+          'Set to true to bypass the cache and fetch fresh results. Use when you need the latest server list rather than a cached response.',
+      },
     },
     required: ['need'],
   },
@@ -56,6 +61,7 @@ export async function handleDiscover(
       need: validatedInput.need,
       constraints: validatedInput.constraints,
       limit: validatedInput.limit,
+      force_refresh: validatedInput.force_refresh,
     });
 
     logger.info('Discovery complete', {
