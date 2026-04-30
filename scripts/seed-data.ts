@@ -1392,6 +1392,21 @@ const MCP_SERVERS: MCPServerSeed[] = [
     category: 'automation',
     capabilities: ['n8n', 'automation', 'workflows', 'self-hosted', 'integrations'],
   },
+
+  // ==================== AGENT DISCOVERY ====================
+  {
+    name: 'Global Chat MCP Server',
+    slug: 'global-chat',
+    npm_package: '@globalchatadsapp/mcp-server',
+    github_url: 'https://github.com/pumanitro/global-chat',
+    description:
+      'Cross-protocol AI agent discovery platform. Searchable directory of 100,000+ agents across 15+ registries including MCP, A2A, agents.txt, ACDP, and more. Enables AI agents to discover other agents and tools across fragmented protocol ecosystems.',
+    install_command: 'npx -y @globalchatadsapp/mcp-server',
+    docs_url: 'https://global-chat.io',
+    homepage_url: 'https://global-chat.io',
+    category: 'ai',
+    capabilities: ['agent-discovery', 'mcp', 'a2a', 'agents-txt', 'directory', 'search', 'ai'],
+  },
 ];
 
 // Unique capabilities to seed
@@ -1728,6 +1743,13 @@ const CAPABILITIES = [
   { name: 'scenarios', category: 'automation', description: 'Automation scenarios' },
   { name: 'n8n', category: 'automation', description: 'n8n automation' },
   { name: 'self-hosted', category: 'automation', description: 'Self-hosted solutions' },
+
+  // Agent Discovery
+  { name: 'agent-discovery', category: 'ai', description: 'AI agent discovery and routing' },
+  { name: 'a2a', category: 'ai', description: 'Agent-to-Agent protocol support' },
+  { name: 'agents-txt', category: 'ai', description: 'agents.txt protocol support' },
+  { name: 'directory', category: 'search', description: 'Directory and registry lookup' },
+  { name: 'mcp', category: 'ai', description: 'Model Context Protocol support' },
 ];
 
 async function seedCapabilities(): Promise<Map<string, string>> {
