@@ -7,13 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.2.0] - 2026-04-30
+
 ### Added
+- **`force_refresh` parameter** on `POST /api/v1/discover` — bypass the
+  server-side cache and fetch live results without restarting the
+  session. Surfaced in both the API and the LangChain `MCPDiscoveryTool`.
+- **Verification signals in API responses**: `is_verified` (boolean) and
+  `trust_score` (0–100) now exposed on every server result so callers
+  can prefer trusted entries for unattended/agent-driven installs.
+- **True async in the LangChain tool**: `_arun` now uses `aiohttp`
+  natively instead of wrapping the sync path. Concurrent agents no
+  longer block on each other.
 - **Global Chat MCP Server** indexed in seed data (cross-protocol agent
   discovery, 100k+ agents across 15+ registries). Adds `agent-discovery`,
   `a2a`, `agents-txt`, `directory`, and `mcp` capabilities. (#3)
-- **`SECURITY.md`** rewritten: threat model (metadata-only, no execution),
-  data-source pipeline, and `exclude_servers` filtering documentation
-  for callers who need allow/deny policies. (#1)
+- **`SECURITY.md`** rewritten with a real threat model (metadata-only,
+  no execution), data-source pipeline, and `exclude_servers` filter
+  documentation for callers needing allow/deny policies. (#1)
+
+### Changed
+- LangChain integration README updated to reflect `force_refresh` and
+  verified-badge display in formatted results.
 
 ## [1.1.0] - 2026-02-02
 

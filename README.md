@@ -7,26 +7,49 @@ Production-grade project scaffold focused on reliability, maintainability, and f
 ![Last Commit](https://img.shields.io/github/last-commit/yksanjo/mcp-discovery)
 ![Repo Size](https://img.shields.io/github/repo-size/yksanjo/mcp-discovery)
 
-## Detailed Description
+## Overview
 
-mcp-discovery is maintained as an industry-grade software project with production-ready engineering practices.  
-This repository includes documented setup, quality gates, operational guidance, and governance standards so contributors can safely build, test, and ship changes with confidence.
+mcp-discovery is the agent-native discovery and routing layer for the
+Model Context Protocol ecosystem. It indexes 14,000+ MCP servers across
+Glama.ai, NPM, and GitHub and serves them through a semantic-search API
+so AI agents can find the right tool for a task at runtime instead of
+relying on a static, hand-curated config file.
 
-## Problem Statement
+**Live API:** `https://mcp-discovery-two.vercel.app`
 
-Describe the user or business problem this project solves, the target users, and expected outcomes.
+## Problem
 
-## Solution Overview
+The MCP ecosystem grew faster than agents can keep up with. Most agents
+hard-code their MCP servers in a config file; adding a new server
+requires a code change and a session restart. There's no way for an
+agent to ask, *"What's available for sending Slack messages?"* and get
+a ranked list of options it can install on demand.
 
-Summarize the architecture, core modules, and runtime behavior at a high level.
+mcp-discovery fixes that. Agents query in natural language, get back
+ranked servers with install commands, latency metrics, and trust
+signals, and can install on the fly.
+
+## Solution
+
+- **Semantic search** over 14,000+ servers (OpenAI embeddings, sub-100ms p50).
+- **Trust signals** in every response: `is_verified` flag, `trust_score`
+  (0–100), uptime %, average latency.
+- **Native integrations** with [LangChain](./langchain/) (`MCPDiscoveryTool`)
+  and [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT/issues/11793)
+  (`MCPDiscoveryBlock`, `MCPDiscoveryCategoriesBlock`).
+- **Filtering** via `exclude_servers` for allow/deny policies — see
+  [SECURITY.md](./SECURITY.md).
+- **`force_refresh`** to bypass cache when you need live data.
 
 ## Key Features
 
-- Clear project scope and intended use.
-- Reproducible local development workflow.
-- Test coverage and CI quality gates.
-- Security and contribution policies.
-- Deployment-ready repository structure.
+- 14,000+ MCP servers indexed (Glama.ai, NPM, GitHub).
+- `/api/v1/discover` — semantic search with optional filters.
+- `/api/v1/categories` — browse by capability.
+- `/api/v1/servers/:slug` — full server detail.
+- LangChain `MCPDiscoveryTool` with true async (`aiohttp`).
+- AutoGPT workflow blocks for the same.
+- LRU cache with per-type TTLs (5m search / 1h embeddings / 10m server data).
 
 ## Repository Structure
 

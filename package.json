@@ -1,6 +1,6 @@
 {
   "name": "mcp-discovery-api",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Agent-native discovery and routing layer for MCP servers. Enables AI agents to autonomously discover, evaluate, and select the best MCP servers for their tasks. Integrated with LangChain and AutoGPT (Feb 2026).",
   "type": "module",
   "main": "dist/index.js",
