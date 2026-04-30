@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **Global Chat MCP Server** indexed in seed data (cross-protocol agent
+  discovery, 100k+ agents across 15+ registries). Adds `agent-discovery`,
+  `a2a`, `agents-txt`, `directory`, and `mcp` capabilities. (#3)
+- **`SECURITY.md`** rewritten: threat model (metadata-only, no execution),
+  data-source pipeline, and `exclude_servers` filtering documentation
+  for callers who need allow/deny policies. (#1)
+
 ## [1.1.0] - 2026-02-02
 
 ### Added
