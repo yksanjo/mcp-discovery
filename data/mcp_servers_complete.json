@@ -89200,5 +89200,20 @@
     "author": "yksanjo",
     "stars": 0,
     "downloads": 0
+  },
+  {
+    "name": "sol-mcp-server",
+    "slug": "sol-mcp-server",
+    "description": "The most comprehensive MCP server for Solana \u2014 balances, tokens, NFTs, swaps, transactions, wallet analysis, and DeFi data",
+    "npm_package": "",
+    "github_url": "https://github.com/yksanjo/sol-mcp-server",
+    "install_command": "uvx sol-mcp-server",
+    "docs_url": "https://github.com/yksanjo/sol-mcp-server",
+    "homepage_url": "",
+    "category": "Blockchain",
+    "source": "github",
+    "author": "yksanjo",
+    "stars": 0,
+    "downloads": 0
   }
 ]
