@@ -121,7 +121,7 @@
   {
     "name": "vocotype",
     "slug": "vocotype",
-    "description": "VocoType 是一款运行在本地端侧的隐私安全语音输入工具，通过快捷键即可将语音实时转换为文字并自动输入到当前应用。支持语音转文字MCP、AI 优化文本、自定义替换词典、录音视频转文字等功能，让语音输入更高效、更安全。",
+    "description": "VocoType \u662f\u4e00\u6b3e\u8fd0\u884c\u5728\u672c\u5730\u7aef\u4fa7\u7684\u9690\u79c1\u5b89\u5168\u8bed\u97f3\u8f93\u5165\u5de5\u5177\uff0c\u901a\u8fc7\u5feb\u6377\u952e\u5373\u53ef\u5c06\u8bed\u97f3\u5b9e\u65f6\u8f6c\u6362\u4e3a\u6587\u5b57\u5e76\u81ea\u52a8\u8f93\u5165\u5230\u5f53\u524d\u5e94\u7528\u3002\u652f\u6301\u8bed\u97f3\u8f6c\u6587\u5b57MCP\u3001AI \u4f18\u5316\u6587\u672c\u3001\u81ea\u5b9a\u4e49\u66ff\u6362\u8bcd\u5178\u3001\u5f55\u97f3\u89c6\u9891\u8f6c\u6587\u5b57\u7b49\u529f\u80fd\uff0c\u8ba9\u8bed\u97f3\u8f93\u5165\u66f4\u9ad8\u6548\u3001\u66f4\u5b89\u5168\u3002",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/233stone/vocotype-cli"
@@ -493,7 +493,7 @@
     "downloads": 0
   },
   {
-    "name": "Maître d'MCP",
+    "name": "Ma\u00eetre d'MCP",
     "slug": "matire-d-mcp",
     "description": "An MCP server for restaurant discovery and booking across Resy and OpenTable via natural language. It integrates Google Places data with dietary preferences, visit history, and weather awareness to provide personalized dining recommendations and group reservation management.",
     "npm_package": null,
@@ -1532,7 +1532,7 @@
   {
     "name": "instagit",
     "slug": "instagit",
-    "description": "An MCP server that gives coding agents instant insight into any Git repository — no guessing, no hallucination.",
+    "description": "An MCP server that gives coding agents instant insight into any Git repository \u2014 no guessing, no hallucination.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/InstalabsAI/instagit"
@@ -1566,7 +1566,7 @@
   {
     "name": "openclaw-mcp",
     "slug": "openclaw-mcp",
-    "description": "🦞 MCP server for OpenClaw - secure bridge between Claude.ai and your self-hosted OpenClaw assistant with OAuth2 authentication",
+    "description": "\ud83e\udd9e MCP server for OpenClaw - secure bridge between Claude.ai and your self-hosted OpenClaw assistant with OAuth2 authentication",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/freema/openclaw-mcp"
@@ -1906,7 +1906,7 @@
   {
     "name": "ynab-mcpb",
     "slug": "ynab-mcpb",
-    "description": "MCP server for YNAB. Reconcile bank statements, itemize receipts, manage transactions — all through natural language.",
+    "description": "MCP server for YNAB. Reconcile bank statements, itemize receipts, manage transactions \u2014 all through natural language.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/dizzlkheinz/ynab-mcpb"
@@ -2567,7 +2567,7 @@
     "downloads": 0
   },
   {
-    "name": "DB MCP (HR CSV → SQLite)",
+    "name": "DB MCP (HR CSV \u2192 SQLite)",
     "slug": "MCP_DOC",
     "description": "This MCP server imports HR CSV data into an in-memory SQLite database to enable structured querying and metadata retrieval. It provides tools for executing read-only SQL queries and searching employee records through a standardized JSON-RPC interface.",
     "npm_package": null,
@@ -2671,7 +2671,7 @@
   {
     "name": "mcp-bcrp",
     "slug": "mcp_bcrp",
-    "description": "Provides access to over 5,000 macroeconomic indicators from the Banco Central de Reserva del Perú (BCRP) statistical database. It enables AI agents to search for indicators, fetch time-series data, and generate professional economic charts.",
+    "description": "Provides access to over 5,000 macroeconomic indicators from the Banco Central de Reserva del Per\u00fa (BCRP) statistical database. It enables AI agents to search for indicators, fetch time-series data, and generate professional economic charts.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/MaykolMedrano/mcp_bcrp"
@@ -2892,7 +2892,7 @@
   {
     "name": "neurodev-mcp",
     "slug": "neurodev-mcp",
-    "description": "NeuroDev MCP is a smart Model Context Protocol server for Python development. It performs deep code review, generates high-quality unit tests, runs test suites with coverage, and formats code automatically — all through an AI assistant like Claude or Cline.",
+    "description": "NeuroDev MCP is a smart Model Context Protocol server for Python development. It performs deep code review, generates high-quality unit tests, runs test suites with coverage, and formats code automatically \u2014 all through an AI assistant like Claude or Cline.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/ravikant1918/neurodev-mcp"
@@ -3640,7 +3640,7 @@
   {
     "name": "Skill Retriever",
     "slug": "skill-retriever",
-    "description": "A graph-based MCP server that discovers, resolves dependencies, and installs the minimal set of Claude Code components—including skills, agents, and commands—tailored to specific tasks.",
+    "description": "A graph-based MCP server that discovers, resolves dependencies, and installs the minimal set of Claude Code components\u2014including skills, agents, and commands\u2014tailored to specific tasks.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/AnthonyAlcaraz/skill-retriever"
@@ -3927,7 +3927,7 @@
     "downloads": 0
   },
   {
-    "name": "Economía Venezuela MCP",
+    "name": "Econom\u00eda Venezuela MCP",
     "slug": "economia-mcp",
     "description": "Provides real-time Venezuelan economic data, including official and parallel exchange rates, inflation statistics, and basic goods basket prices. It enables AI assistants to query historical economic trends and current market indicators via natural language.",
     "npm_package": null,
@@ -4677,7 +4677,7 @@
   {
     "name": "Gaia-Protocol",
     "slug": "Gaia-Protocol",
-    "description": "Gaia Protocol—a planetary DAO for global resource management using quantum-entangled ledgers and algorithmic governance.",
+    "description": "Gaia Protocol\u2014a planetary DAO for global resource management using quantum-entangled ledgers and algorithmic governance.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/KOSASIH/Gaia-Protocol"
@@ -4796,7 +4796,7 @@
   {
     "name": "CBETA MCP Server",
     "slug": "Cbeta-MCP",
-    "description": "Provides access to the Chinese Buddhist Electronic Text Association (CBETA) online library of over 100 million characters of Buddhist scripture. It enables users to search, browse catalogs, and retrieve content from major collections like the Taishō Tripiṭaka.",
+    "description": "Provides access to the Chinese Buddhist Electronic Text Association (CBETA) online library of over 100 million characters of Buddhist scripture. It enables users to search, browse catalogs, and retrieve content from major collections like the Taish\u014d Tripi\u1e6daka.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/hiing/Cbeta-MCP"
@@ -5289,7 +5289,7 @@
   {
     "name": "claude-bridge-server",
     "slug": "claude-bridge-server",
-    "description": "An MCP server that enables collaboration between Claude Code and Z.ai's GLM models — use Claude Opus for planning while GLM handles implementation.",
+    "description": "An MCP server that enables collaboration between Claude Code and Z.ai's GLM models \u2014 use Claude Opus for planning while GLM handles implementation.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/Joncik91/claude-bridge-server"
@@ -6054,7 +6054,7 @@
   {
     "name": "lemon-squeezy-mcp",
     "slug": "lemon-squeezy-mcp",
-    "description": "Universal Semantic Bridge for Lemon Squeezy: A high-performance Model Context Protocol (MCP) server that empowers AI assistants (Cursor, Claude, VS Code) to query payments, manage subscriptions, and sync customers to Salesforce directly from your editor. 🍋✨",
+    "description": "Universal Semantic Bridge for Lemon Squeezy: A high-performance Model Context Protocol (MCP) server that empowers AI assistants (Cursor, Claude, VS Code) to query payments, manage subscriptions, and sync customers to Salesforce directly from your editor. \ud83c\udf4b\u2728",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/IntrepidServicesLLC/lemonsqueezy-mcp-server"
@@ -6139,7 +6139,7 @@
   {
     "name": "gitlab-mcp",
     "slug": "gitlab-mcp",
-    "description": "Full-coverage GitLab MCP server with 44 tools across 18 resource types. Agent-optimized CQRS design — one tool call handles complete multi-step operations. Supports OAuth 2.1, read-only mode, stdio/SSE/StreamableHTTP transports, and GraphQL-native work\nitems with full hierarchy (epics,issues,etc)",
+    "description": "Full-coverage GitLab MCP server with 44 tools across 18 resource types. Agent-optimized CQRS design \u2014 one tool call handles complete multi-step operations. Supports OAuth 2.1, read-only mode, stdio/SSE/StreamableHTTP transports, and GraphQL-native work\nitems with full hierarchy (epics,issues,etc)",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/structured-world/gitlab-mcp"
@@ -6734,7 +6734,7 @@
   {
     "name": "Task MCP",
     "slug": "task-mcp",
-    "description": "Enables AI assistants to manage Dida365 (滴答清单) tasks through the Model Context Protocol. It supports full task lifecycle management including creating, updating, and filtering tasks with automatic timezone handling.",
+    "description": "Enables AI assistants to manage Dida365 (\u6ef4\u7b54\u6e05\u5355) tasks through the Model Context Protocol. It supports full task lifecycle management including creating, updating, and filtering tasks with automatic timezone handling.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/Clearner1/task-mcp"
@@ -7176,7 +7176,7 @@
   {
     "name": "Pokemon MCP Server",
     "slug": "pokemon-nds-mcp",
-    "description": "An MCP server that enables AI agents to play Pokémon games by providing a functional interface for game interaction. It allows for seamless integration with AI clients to execute gameplay tasks and manage game states.",
+    "description": "An MCP server that enables AI agents to play Pok\u00e9mon games by providing a functional interface for game interaction. It allows for seamless integration with AI clients to execute gameplay tasks and manage game states.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/Kartik-2239/pokemon-nds-mcp"
@@ -7684,7 +7684,7 @@
     "downloads": 0
   },
   {
-    "name": "TripNow (航班管家)",
+    "name": "TripNow (\u822a\u73ed\u7ba1\u5bb6)",
     "slug": "tripnow-mcp",
     "description": "Provides real-time flight and train ticket queries, live status tracking, and a professional knowledge base for air and rail travel. It enables users to monitor departures, check ticketing policies, and manage travel information through a unified interface.",
     "npm_package": null,
@@ -8077,7 +8077,7 @@
   {
     "name": "vibe",
     "slug": "vibe",
-    "description": "Social layer for AI coding — DMs, presence, discovery, and multiplayer games between developers. 68 tools including messaging, presence, memory, and 27 multiplayer games.",
+    "description": "Social layer for AI coding \u2014 DMs, presence, discovery, and multiplayer games between developers. 68 tools including messaging, presence, memory, and 27 multiplayer games.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/VibeCodingInc/vibe-mcp"
@@ -8094,7 +8094,7 @@
   {
     "name": "eu-regulations",
     "slug": "eu-regulations",
-    "description": "Query 37 EU regulations — from GDPR and AI Act to DORA, MiFID II, eIDAS, Medical Device Regulation, and more — directly from Claude, Cursor, or any MCP-compatible client.",
+    "description": "Query 37 EU regulations \u2014 from GDPR and AI Act to DORA, MiFID II, eIDAS, Medical Device Regulation, and more \u2014 directly from Claude, Cursor, or any MCP-compatible client.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/Ansvar-Systems/EU_compliance_MCP"
@@ -9267,7 +9267,7 @@
   {
     "name": "service-economics",
     "slug": "service-economics",
-    "description": "Free service management tools — playbooks, benchmarks, and instant service health analysis.\n\nDigitalCore MCP gives you free access to service management expertise directly in your AI assistant. Run a Service Reality Check to score your service health in 60 seconds. Access strategy playbooks for ser",
+    "description": "Free service management tools \u2014 playbooks, benchmarks, and instant service health analysis.\n\nDigitalCore MCP gives you free access to service management expertise directly in your AI assistant. Run a Service Reality Check to score your service health in 60 seconds. Access strategy playbooks for ser",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/DigitalCoreApp/digitalcore-mcp-free"
@@ -9930,7 +9930,7 @@
   {
     "name": "RAGStack-Lambda",
     "slug": "RAGStack-Lambda",
-    "description": "Serverless document and media processing with AI chat. Upload documents, images, video, and audio — extract text with OCR or transcription — query using Amazon Bedrock.",
+    "description": "Serverless document and media processing with AI chat. Upload documents, images, video, and audio \u2014 extract text with OCR or transcription \u2014 query using Amazon Bedrock.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/HatmanStack/RAGStack-Lambda"
@@ -10610,7 +10610,7 @@
   {
     "name": "cyntrisec",
     "slug": "cyntrisec",
-    "description": "A local-first AWS security tool that uses graph theory to discover attack paths (e.g., Internet → Role → DB) and prioritize remediations. It allows agents to perform read-only security audits and generate Terraform fixes without data exfiltration.",
+    "description": "A local-first AWS security tool that uses graph theory to discover attack paths (e.g., Internet \u2192 Role \u2192 DB) and prioritize remediations. It allows agents to perform read-only security audits and generate Terraform fixes without data exfiltration.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/cyntrisec/cyntrisec-cli"
@@ -11594,7 +11594,7 @@
     "downloads": 0
   },
   {
-    "name": "Aurai Advisor (上级顾问 MCP)",
+    "name": "Aurai Advisor (\u4e0a\u7ea7\u987e\u95ee MCP)",
     "slug": "mcp-aurai-server",
     "description": "An MCP server that enables local AI models to receive guidance from remote 'senior' AI providers like OpenAI, Anthropic, and Gemini to solve programming problems. It features intelligent multi-turn dialogue management, context synchronization, and automated session history tracking.",
     "npm_package": null,
@@ -13381,7 +13381,7 @@
   {
     "name": "ui-ux-pro-mcp",
     "slug": "ui-ux-pro-mcp",
-    "description": "🎨 AI-powered UI/UX design intelligence - 1519+ curated design resources through MCP | React, Vue, Next.js, Flutter & more",
+    "description": "\ud83c\udfa8 AI-powered UI/UX design intelligence - 1519+ curated design resources through MCP | React, Vue, Next.js, Flutter & more",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/redf0x1/ui-ux-pro-mcp"
@@ -15470,7 +15470,7 @@
     "downloads": 0
   },
   {
-    "name": "MCP Partidos de Fútbol",
+    "name": "MCP Partidos de F\u00fatbol",
     "slug": "mcp-GetTodayFutbolMatches-usingIA",
     "description": "A Python-based MCP server that extracts football match data from multiple global sources like ESPN and BBC Sport using intelligent web scraping. It enables AI assistants to retrieve scheduled matches, real-time scores, and broadcasting details with advanced filtering for high-profile games.",
     "npm_package": null,
@@ -16832,7 +16832,7 @@
   {
     "name": "Icelandic Morphology MCP Server",
     "slug": "icelandic-morphology-mcp",
-    "description": "Provides access to the Database of Icelandic Morphology (BÍN) to look up word inflections, variants, and lemmas. It enables LLMs to answer grammatical questions and retrieve specific Icelandic word forms using standard grammatical tags.",
+    "description": "Provides access to the Database of Icelandic Morphology (B\u00cdN) to look up word inflections, variants, and lemmas. It enables LLMs to answer grammatical questions and retrieve specific Icelandic word forms using standard grammatical tags.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/mideind/icelandic-morphology-mcp"
@@ -17170,7 +17170,7 @@
     "downloads": 0
   },
   {
-    "name": "VAP Media · Unified MCP Server for AI Agents (Flux · Veo · Suno)",
+    "name": "VAP Media \u00b7 Unified MCP Server for AI Agents (Flux \u00b7 Veo \u00b7 Suno)",
     "slug": "vap-mcp-server",
     "description": "Execution control layer for AI agents - Reserve, execute, burn/refund pattern for media generation",
     "npm_package": null,
@@ -18394,9 +18394,9 @@
     "downloads": 0
   },
   {
-    "name": "Bakaláři MCP Server",
+    "name": "Bakal\u00e1\u0159i MCP Server",
     "slug": "bakalari-mcp",
-    "description": "An MCP server for the Bakaláři v3 API that provides access to the popular Czech school management system. It enables users to retrieve schedules, permanent timetables, absence records, and grades through a standardized interface.",
+    "description": "An MCP server for the Bakal\u00e1\u0159i v3 API that provides access to the popular Czech school management system. It enables users to retrieve schedules, permanent timetables, absence records, and grades through a standardized interface.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/mirecekd/bakalari-mcp"
@@ -26962,9 +26962,9 @@
     "downloads": 0
   },
   {
-    "name": "Czech Railways (České dráhy) MCP Server",
+    "name": "Czech Railways (\u010cesk\u00e9 dr\u00e1hy) MCP Server",
     "slug": "cd-mcp",
-    "description": "Enables searching for train connections, stations, and ticket pricing on the Czech railway network via the official České dráhy API. It supports retrieving detailed connection information and passenger discount categories for travel planning.",
+    "description": "Enables searching for train connections, stations, and ticket pricing on the Czech railway network via the official \u010cesk\u00e9 dr\u00e1hy API. It supports retrieving detailed connection information and passenger discount categories for travel planning.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/JanProvaznik/cd-mcp"
@@ -27302,9 +27302,9 @@
     "downloads": 0
   },
   {
-    "name": "İzmir Ulaşım MCP Server",
+    "name": "\u0130zmir Ula\u015f\u0131m MCP Server",
     "slug": "izmir-ulasim-mcp",
-    "description": "Provides real-time access to İzmir's public transportation data, including bus locations, schedules, and route information for ESHOT, İZBAN, Metro, and Tram services. It enables AI assistants to perform transit queries, calculate fares, and locate nearby stations using the Model Context Protocol.",
+    "description": "Provides real-time access to \u0130zmir's public transportation data, including bus locations, schedules, and route information for ESHOT, \u0130ZBAN, Metro, and Tram services. It enables AI assistants to perform transit queries, calculate fares, and locate nearby stations using the Model Context Protocol.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/ogulcanakca/izmir-ulasim-mcp"
@@ -27372,7 +27372,7 @@
   {
     "name": "QMYZ-MCP",
     "slug": "QMYZ-MCP",
-    "description": "An MCP server for the Qingma Yizhan (青马易战) platform that provides automated quiz-answering capabilities. It enables users to retrieve course lists, fetch question details, and submit answers through a unified model context interface.",
+    "description": "An MCP server for the Qingma Yizhan (\u9752\u9a6c\u6613\u6218) platform that provides automated quiz-answering capabilities. It enables users to retrieve course lists, fetch question details, and submit answers through a unified model context interface.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/shibig666/QMYZ-MCP"
@@ -28664,7 +28664,7 @@
   {
     "name": "mcp-narajangteo",
     "slug": "mcp-narajangteo",
-    "description": "내 상황에 맞는 사업을 키워드 기반으로 알려주고 분석함",
+    "description": "\ub0b4 \uc0c1\ud669\uc5d0 \ub9de\ub294 \uc0ac\uc5c5\uc744 \ud0a4\uc6cc\ub4dc \uae30\ubc18\uc73c\ub85c \uc54c\ub824\uc8fc\uace0 \ubd84\uc11d\ud568",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/Datajang/narajangteo_mcp_server"
@@ -29242,7 +29242,7 @@
   {
     "name": "pokemon-gen3-calc-mcp",
     "slug": "pokemon-gen3-calc-mcp",
-    "description": "An MCP server that enables accurate status and damage calculations for third-generation Pokémon games, including support for complex factors like weather, abilities, and items. It also provides tools for calculating optimal effort value (EV) distributions through brute-force damage matrix simulations.",
+    "description": "An MCP server that enables accurate status and damage calculations for third-generation Pok\u00e9mon games, including support for complex factors like weather, abilities, and items. It also provides tools for calculating optimal effort value (EV) distributions through brute-force damage matrix simulations.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/ptrst102/pokemon-gen3-calc-mcp"
@@ -35277,7 +35277,7 @@
   {
     "name": "AI Debugger",
     "slug": "aidb",
-    "description": "Bringing the debugging we know and love as human programmers to our AI agents – debug any supported language with breakpoints, variable/state inspection, and stepping, to supercharge agents' capabilities to reason about runtime code.",
+    "description": "Bringing the debugging we know and love as human programmers to our AI agents \u2013 debug any supported language with breakpoints, variable/state inspection, and stepping, to supercharge agents' capabilities to reason about runtime code.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/ai-debugger-inc/aidb"
@@ -39323,7 +39323,7 @@
   {
     "name": "Haiguitang MCP Server",
     "slug": "haiguitangmcp",
-    "description": "Enables LLMs to host and play Situation Puzzle (海龟汤) games where users solve mysterious scenarios by asking yes/no questions to uncover the full story behind seemingly illogical situations.",
+    "description": "Enables LLMs to host and play Situation Puzzle (\u6d77\u9f9f\u6c64) games where users solve mysterious scenarios by asking yes/no questions to uncover the full story behind seemingly illogical situations.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/StevenFengLi/haiguitangmcp"
@@ -40613,7 +40613,7 @@
     "downloads": 0
   },
   {
-    "name": "MCP 길잡이 (mcp-giljabi)",
+    "name": "MCP \uae38\uc7a1\uc774 (mcp-giljabi)",
     "slug": "mcp-giljabi",
     "description": "Helps users discover and install MCP servers from PlayMCP using hybrid search (keyword matching + semantic search) based on their requests, and provides installation guidance.",
     "npm_package": null,
@@ -41038,9 +41038,9 @@
     "downloads": 0
   },
   {
-    "name": "UU跑腿 MCP Server",
+    "name": "UU\u8dd1\u817f MCP Server",
     "slug": "uupt-mcp-server",
-    "description": "Enables AI agents to create and manage delivery orders through UU跑腿 (UU Errands) delivery service platform. Supports price quotes, order creation, order tracking, and real-time courier location through natural language commands.",
+    "description": "Enables AI agents to create and manage delivery orders through UU\u8dd1\u817f (UU Errands) delivery service platform. Supports price quotes, order creation, order tracking, and real-time courier location through natural language commands.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/uupt-mcp/uupt-mcp-server"
@@ -42704,7 +42704,7 @@
     "downloads": 0
   },
   {
-    "name": "독립유공자 공훈록 MCP 서버 (Korean Independence Patriots Records)",
+    "name": "\ub3c5\ub9bd\uc720\uacf5\uc790 \uacf5\ud6c8\ub85d MCP \uc11c\ubc84 (Korean Independence Patriots Records)",
     "slug": "shinkeonkim_e-gonghun-mcp",
     "description": "Enables querying and retrieving merit records and official reports of Korean independence patriots from the Ministry of Patriots and Veterans Affairs' electronic archive, including search by name, date of birth, honor grade, and movement affiliation.",
     "npm_package": null,
@@ -42995,7 +42995,7 @@
   {
     "name": "Love Live! Illustration Prompt Generator",
     "slug": "odai-lovelive-mcp-server",
-    "description": "Generates creative illustration prompts featuring characters from the Love Live! franchise (μ's, Aqours, Nijigasaki, Liella!, Hasunosora, and Ikizurai) with randomized settings including characters, locations, times, actions, and items.",
+    "description": "Generates creative illustration prompts featuring characters from the Love Live! franchise (\u03bc's, Aqours, Nijigasaki, Liella!, Hasunosora, and Ikizurai) with randomized settings including characters, locations, times, actions, and items.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/egawata/odai-lovelive-mcp-server"
@@ -44253,7 +44253,7 @@
   {
     "name": "Gallica/BnF MCP Server",
     "slug": "sweet-bnf",
-    "description": "Enables access to the Gallica digital library of the Bibliothèque nationale de France (BnF) with search capabilities across titles, authors, subjects, and dates, plus retrieval of document metadata, IIIF images, and OCR text content.",
+    "description": "Enables access to the Gallica digital library of the Biblioth\u00e8que nationale de France (BnF) with search capabilities across titles, authors, subjects, and dates, plus retrieval of document metadata, IIIF images, and OCR text content.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/ukicar/sweet-bnf"
@@ -45579,7 +45579,7 @@
   {
     "name": "Nexus MCP for Obsidian",
     "slug": "nexus",
-    "description": "Turns your Obsidian vault into an MCP-enabled workspace with tools for reading/writing notes, managing folders, running semantic searches, and maintaining long-term memory—all while keeping data local to your vault.",
+    "description": "Turns your Obsidian vault into an MCP-enabled workspace with tools for reading/writing notes, managing folders, running semantic searches, and maintaining long-term memory\u2014all while keeping data local to your vault.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/ProfSynapse/nexus"
@@ -46497,7 +46497,7 @@
   {
     "name": "Brreg MCP Server",
     "slug": "brreg-mcp-server",
-    "description": "Enables interaction with the Norwegian Business Registry (Brønnøysundregistrene) API to search and retrieve detailed information about Norwegian companies, subunits, roles, organization forms, municipalities, and NACE industry codes.",
+    "description": "Enables interaction with the Norwegian Business Registry (Br\u00f8nn\u00f8ysundregistrene) API to search and retrieve detailed information about Norwegian companies, subunits, roles, organization forms, municipalities, and NACE industry codes.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/daveHylde/brreg-mcp-server"
@@ -49929,9 +49929,9 @@
     "downloads": 0
   },
   {
-    "name": "Bürokratt MCP Server",
+    "name": "B\u00fcrokratt MCP Server",
     "slug": "buerokratt-mcp",
-    "description": "Provides AI coding assistant rules and guidelines for Bürokratt modules, including expertise in DSL-based backend (Ruuter YAML, SQL), frontend development, browser debugging, fork synchronization, and service testing capabilities.",
+    "description": "Provides AI coding assistant rules and guidelines for B\u00fcrokratt modules, including expertise in DSL-based backend (Ruuter YAML, SQL), frontend development, browser debugging, fork synchronization, and service testing capabilities.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/IgorKrupenja/buerokratt-mcp"
@@ -50067,7 +50067,7 @@
   {
     "name": "Lunar Calendar MCP Server",
     "slug": "lunar-mcp-server",
-    "description": "Provides traditional Chinese lunar calendar information including auspicious date checking, BaZi (八字) Four Pillars analysis, festival data, moon phases, zodiac compatibility, and calendar conversions based on Chinese cultural traditions.",
+    "description": "Provides traditional Chinese lunar calendar information including auspicious date checking, BaZi (\u516b\u5b57) Four Pillars analysis, festival data, moon phases, zodiac compatibility, and calendar conversions based on Chinese cultural traditions.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/AngusHsu/lunar-mcp-server"
@@ -52634,7 +52634,7 @@
   {
     "name": "Bilibili API MCP Server",
     "slug": "bilibili-api-mcp-server",
-    "description": "Enables interaction with Bilibili (哔哩哔哩) through its API, supporting video search and recommendations, user search, dynamic feeds, video collections, and danmaku retrieval through natural language.",
+    "description": "Enables interaction with Bilibili (\u54d4\u54e9\u54d4\u54e9) through its API, supporting video search and recommendations, user search, dynamic feeds, video collections, and danmaku retrieval through natural language.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/SMYB5431/bilibili-api-mcp-server"
@@ -52651,7 +52651,7 @@
   {
     "name": "ARES MCP Server",
     "slug": "ares-mcp-server",
-    "description": "Provides access to the Czech ARES business registry API, enabling search and retrieval of official information about Czech companies, validation of IČO numbers, and filtering by various criteria like legal form, industry codes, and location.",
+    "description": "Provides access to the Czech ARES business registry API, enabling search and retrieval of official information about Czech companies, validation of I\u010cO numbers, and filtering by various criteria like legal form, industry codes, and location.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/vzeman/ares-mcp-server"
@@ -52955,7 +52955,7 @@
     "downloads": 0
   },
   {
-    "name": "MCP Câmara BR",
+    "name": "MCP C\u00e2mara BR",
     "slug": "AgenteCidadaoMCP",
     "description": "Enables interaction with the Brazilian Chamber of Deputies Open Data API, providing access to information about legislators, legislative proposals, voting records, events, committees, and parliamentary activities through 57 typed and validated tools.",
     "npm_package": null,
@@ -54725,7 +54725,7 @@
   {
     "name": "Volcengine Knowledge Base MCP",
     "slug": "suqidan_volcengine_knowledgebase_mcp",
-    "description": "Enables integration with Volcengine (火山引擎) knowledge base service through Claude Desktop, providing knowledge base search and conversational AI capabilities with secure credential management.",
+    "description": "Enables integration with Volcengine (\u706b\u5c71\u5f15\u64ce) knowledge base service through Claude Desktop, providing knowledge base search and conversational AI capabilities with secure credential management.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/MCP-Mirror/suqidan_volcengine_knowledgebase_mcp"
@@ -55065,7 +55065,7 @@
   {
     "name": "mcp-reticle",
     "slug": "mcp-reticle",
-    "description": "The Wireshark for the Model Context Protocol (Reticle) intercepts, visualises, and profiles MCP JSON-RPC traffic in real time — designed for microsecond-level overhead.",
+    "description": "The Wireshark for the Model Context Protocol (Reticle) intercepts, visualises, and profiles MCP JSON-RPC traffic in real time \u2014 designed for microsecond-level overhead.",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/LabTerminal/mcp-reticle"
@@ -57785,7 +57785,7 @@
   {
     "name": "Read-Website",
     "slug": "Read-Website",
-    "description": "一个快速、高效的网页内容提取工具，将网页转换为干净的Markdown格式，适用于AI代理、IDE和LLM管道。",
+    "description": "\u4e00\u4e2a\u5feb\u901f\u3001\u9ad8\u6548\u7684\u7f51\u9875\u5185\u5bb9\u63d0\u53d6\u5de5\u5177\uff0c\u5c06\u7f51\u9875\u8f6c\u6362\u4e3a\u5e72\u51c0\u7684Markdown\u683c\u5f0f\uff0c\u9002\u7528\u4e8eAI\u4ee3\u7406\u3001IDE\u548cLLM\u7ba1\u9053\u3002",
     "npm_package": null,
     "github_url": {
       "url": "https://github.com/xiaobenyang-com/1777316659753987"
@@ -62654,7 +62654,7 @@
   {
     "name": "@zeplin/mcp-server",
     "slug": "zeplin-mcp-server",
-    "description": "Zeplin’s official MCP server for AI-assisted UI development",
+    "description": "Zeplin\u2019s official MCP server for AI-assisted UI development",
     "npm_package": "@zeplin/mcp-server",
     "github_url": "git+https://github.com/zeplin/mcp-server.git",
     "install_command": "npx -y @zeplin/mcp-server",
@@ -63839,7 +63839,7 @@
   {
     "name": "@fangjunjie/ssh-mcp-server",
     "slug": "fangjunjie-ssh-mcp-server",
-    "description": "SSH-based MCP Server (基于 SSH 的 MCP 服务器)",
+    "description": "SSH-based MCP Server (\u57fa\u4e8e SSH \u7684 MCP \u670d\u52a1\u5668)",
     "npm_package": "@fangjunjie/ssh-mcp-server",
     "github_url": null,
     "install_command": "npx -y @fangjunjie/ssh-mcp-server",
@@ -63959,7 +63959,7 @@
   {
     "name": "computer-use-mcp",
     "slug": "computer-use-mcp",
-    "description": "💻 MCP server for Claude to control your computer",
+    "description": "\ud83d\udcbb MCP server for Claude to control your computer",
     "npm_package": "computer-use-mcp",
     "github_url": "git+https://github.com/domdomegg/computer-use-mcp.git",
     "install_command": "npx -y computer-use-mcp",
@@ -67784,7 +67784,7 @@
   {
     "name": "@magneticwatermelon/mcp-toolkit",
     "slug": "magneticwatermelon-mcp-toolkit",
-    "description": "Build and ship **[Model Context Protocol](https://github.com/modelcontextprotocol)** (MCP) servers with zero-config ⚡️.",
+    "description": "Build and ship **[Model Context Protocol](https://github.com/modelcontextprotocol)** (MCP) servers with zero-config \u26a1\ufe0f.",
     "npm_package": "@magneticwatermelon/mcp-toolkit",
     "github_url": null,
     "install_command": "npx -y @magneticwatermelon/mcp-toolkit",
@@ -68054,7 +68054,7 @@
   {
     "name": "learn-mcp",
     "slug": "learn-mcp",
-    "description": "学习 ModelContextProtocol 协议",
+    "description": "\u5b66\u4e60 ModelContextProtocol \u534f\u8bae",
     "npm_package": "learn-mcp",
     "github_url": null,
     "install_command": "npx -y learn-mcp",
@@ -68069,7 +68069,7 @@
   {
     "name": "@thunder_ai/mcp-element-ui",
     "slug": "thunder_ai-mcp-element-ui",
-    "description": "Element Plus 的 ModelContextProtocol (MCP) 服务器",
+    "description": "Element Plus \u7684 ModelContextProtocol (MCP) \u670d\u52a1\u5668",
     "npm_package": "@thunder_ai/mcp-element-ui",
     "github_url": null,
     "install_command": "npx -y @thunder_ai/mcp-element-ui",
@@ -68744,7 +68744,7 @@
   {
     "name": "@iflow-mcp/minecraft-mcp-server",
     "slug": "iflow-mcp-minecraft-mcp-server",
-    "description": "> ⚠️ **CLAUDE DESKTOP DUAL LAUNCH WARNING**: Claude Desktop may sometimes launch MCP servers twice ([known issue](https://github.com/modelcontextprotocol/servers/issues/812)), which can lead to incorrect behavior of this MCP server. If you experience issu",
+    "description": "> \u26a0\ufe0f **CLAUDE DESKTOP DUAL LAUNCH WARNING**: Claude Desktop may sometimes launch MCP servers twice ([known issue](https://github.com/modelcontextprotocol/servers/issues/812)), which can lead to incorrect behavior of this MCP server. If you experience issu",
     "npm_package": "@iflow-mcp/minecraft-mcp-server",
     "github_url": null,
     "install_command": "npx -y @iflow-mcp/minecraft-mcp-server",
@@ -68819,7 +68819,7 @@
   {
     "name": "@xiaozhi-client/mcp-core",
     "slug": "xiaozhi-client-mcp-core",
-    "description": "MCP 协议核心实现，提供服务连接和管理功能",
+    "description": "MCP \u534f\u8bae\u6838\u5fc3\u5b9e\u73b0\uff0c\u63d0\u4f9b\u670d\u52a1\u8fde\u63a5\u548c\u7ba1\u7406\u529f\u80fd",
     "npm_package": "@xiaozhi-client/mcp-core",
     "github_url": "git+https://github.com/shenjingnan/xiaozhi-client.git",
     "install_command": "npx -y @xiaozhi-client/mcp-core",
@@ -69479,7 +69479,7 @@
   {
     "name": "@mseep/airylark-mcp-server",
     "slug": "mseep-airylark-mcp-server",
-    "description": "AiryLark的ModelContextProtocol(MCP)服务器，提供高精度翻译API",
+    "description": "AiryLark\u7684ModelContextProtocol(MCP)\u670d\u52a1\u5668\uff0c\u63d0\u4f9b\u9ad8\u7cbe\u5ea6\u7ffb\u8bd1API",
     "npm_package": "@mseep/airylark-mcp-server",
     "github_url": "git+https://github.com/wizd/airylark.git",
     "install_command": "npx -y @mseep/airylark-mcp-server",
@@ -69764,7 +69764,7 @@
   {
     "name": "@iflow-mcp/kelvinqiu802-mcp-sse",
     "slug": "iflow-mcp-kelvinqiu802-mcp-sse",
-    "description": "HTTP+SSE 将逐步被替换为 Streamable HTTP",
+    "description": "HTTP+SSE \u5c06\u9010\u6b65\u88ab\u66ff\u6362\u4e3a Streamable HTTP",
     "npm_package": "@iflow-mcp/kelvinqiu802-mcp-sse",
     "github_url": null,
     "install_command": "npx -y @iflow-mcp/kelvinqiu802-mcp-sse",
@@ -89168,6 +89168,21 @@
     "category": "other",
     "source": "awesome-list",
     "author": "oatpp",
+    "stars": 0,
+    "downloads": 0
+  },
+  {
+    "name": "wax-mcp-server",
+    "slug": "wax-mcp-server",
+    "description": "MCP server for the WAX blockchain \u2014 query balances, NFTs, prices, and transactions through natural language",
+    "npm_package": "",
+    "github_url": "https://github.com/yksanjo/wax-mcp-server",
+    "install_command": "uvx wax-mcp-server",
+    "docs_url": "https://github.com/yksanjo/wax-mcp-server",
+    "homepage_url": "",
+    "category": "Blockchain",
+    "source": "github",
+    "author": "yksanjo",
     "stars": 0,
     "downloads": 0
   }
