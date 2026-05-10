@@ -89215,5 +89215,20 @@
     "author": "yksanjo",
     "stars": 0,
     "downloads": 0
+  },
+  {
+    "name": "sol-agent-wallet",
+    "slug": "sol-agent-wallet",
+    "description": "The first write-capable Solana AI agent \u2014 swap tokens, send SOL, and manage your wallet through natural language",
+    "npm_package": "",
+    "github_url": "https://github.com/yksanjo/sol-agent-wallet",
+    "install_command": "uvx sol-agent-wallet",
+    "docs_url": "https://github.com/yksanjo/sol-agent-wallet",
+    "homepage_url": "",
+    "category": "Blockchain",
+    "source": "github",
+    "author": "yksanjo",
+    "stars": 0,
+    "downloads": 0
   }
 ]
