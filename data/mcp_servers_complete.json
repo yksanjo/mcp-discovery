@@ -89185,5 +89185,20 @@
     "author": "yksanjo",
     "stars": 0,
     "downloads": 0
+  },
+  {
+    "name": "wax-nft-sniper",
+    "slug": "wax-nft-sniper",
+    "description": "Real-time WAX NFT sniper and whale monitor \u2014 track mints, floor prices, and big sales with Telegram alerts",
+    "npm_package": "",
+    "github_url": "https://github.com/yksanjo/wax-nft-sniper",
+    "install_command": "pip install wax-nft-sniper",
+    "docs_url": "https://github.com/yksanjo/wax-nft-sniper",
+    "homepage_url": "",
+    "category": "Blockchain",
+    "source": "github",
+    "author": "yksanjo",
+    "stars": 0,
+    "downloads": 0
   }
 ]
