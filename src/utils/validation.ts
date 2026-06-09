@@ -10,6 +10,7 @@ export const DiscoverInputSchema = z.object({
     })
     .optional(),
   limit: z.number().int().positive().max(20).default(5),
+  force_refresh: z.boolean().optional(),
 });
 
 export const GetMetricsInputSchema = z.object({
