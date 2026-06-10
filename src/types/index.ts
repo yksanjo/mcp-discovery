@@ -153,6 +153,8 @@ export interface MatchedServer {
   category: string | null;
   is_verified: boolean;
   similarity: number;
+  /** GitHub stars — only populated by the local search backend. */
+  stars?: number;
 }
 
 // Seed data type

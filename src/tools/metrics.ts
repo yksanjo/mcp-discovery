@@ -3,6 +3,7 @@ import {
   getLatestMetrics,
   getMetricsHistory,
 } from '../db/queries.js';
+import { isLocalMode, LOCAL_MODE_HINT } from '../services/local-search.js';
 import { validateGetMetricsInput } from '../utils/validation.js';
 import { logger } from '../utils/logger.js';
 import type { GetMetricsOutput } from '../types/index.js';
@@ -39,6 +40,10 @@ export async function handleGetMetrics(
   args: Record<string, unknown>
 ): Promise<GetMetricsOutput> {
   logger.info('Handling get_server_metrics request', { args });
+
+  if (isLocalMode()) {
+    throw new Error(LOCAL_MODE_HINT);
+  }
 
   try {
     const validatedInput = validateGetMetricsInput(args);

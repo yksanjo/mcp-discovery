@@ -3,6 +3,7 @@ import {
   getCapabilitiesForServer,
   getLatestMetrics,
 } from '../db/queries.js';
+import { isLocalMode, LOCAL_MODE_HINT } from '../services/local-search.js';
 import { validateCompareInput } from '../utils/validation.js';
 import { logger } from '../utils/logger.js';
 import type { CompareOutput, ServerComparison, MCPServer } from '../types/index.js';
@@ -48,6 +49,10 @@ export async function handleCompare(
   args: Record<string, unknown>
 ): Promise<CompareOutput> {
   logger.info('Handling compare_servers request', { args });
+
+  if (isLocalMode()) {
+    throw new Error(LOCAL_MODE_HINT);
+  }
 
   try {
     const validatedInput = validateCompareInput(args);

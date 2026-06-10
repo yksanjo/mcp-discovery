@@ -1,4 +1,5 @@
 import { generateEmbedding } from './embeddings.js';
+import { isLocalMode, localSearch, localTrustScore } from './local-search.js';
 import { getCachedSearch, setCachedSearch } from './cache.js';
 import {
   searchServersByEmbedding,
@@ -25,7 +26,7 @@ export interface SearchOptions {
  * - uptime_pct contributes up to 40 points
  * - success_rate contributes up to 20 points
  */
-function computeTrustScore(
+export function computeTrustScore(
   isVerified: boolean,
   uptimePct: number | null,
   successRate: number | null
@@ -42,11 +43,14 @@ export async function semanticSearch(
 ): Promise<MatchedServer[]> {
   const { limit = 5, threshold = 0.3 } = options;
 
-  // Generate embedding for the query
-  const embedding = await generateEmbedding(query);
-
-  // Search database with vector similarity
-  const results = await searchServersByEmbedding(embedding, limit * 2, threshold);
+  let results: MatchedServer[];
+  if (isLocalMode()) {
+    // No Supabase configured: keyword search over the bundled dataset.
+    results = localSearch(query, limit * 2);
+  } else {
+    const embedding = await generateEmbedding(query);
+    results = await searchServersByEmbedding(embedding, limit * 2, threshold);
+  }
 
   // Apply post-filters if specified
   let filtered = results;
@@ -106,12 +110,12 @@ export async function discoverServers(
   // Enrich results with capabilities and metrics
   const recommendations: ServerRecommendation[] = await Promise.all(
     matchedServers.map(async (server) => {
-      // Get capabilities
-      const capabilities = await getCapabilitiesForServer(server.id);
+      // Capabilities and probe metrics live in the hosted DB only.
+      const local = isLocalMode();
+      const capabilities = local ? [] : await getCapabilitiesForServer(server.id);
       const capabilityNames = capabilities.map((c) => c.name);
 
-      // Get latest metrics
-      const metrics = await getLatestMetrics(server.id);
+      const metrics = local ? null : await getLatestMetrics(server.id);
 
       // Check if required features are present
       if (input.constraints?.required_features?.length) {
@@ -137,11 +141,13 @@ export async function discoverServers(
         server.similarity *= 0.7;
       }
 
-      const trustScore = computeTrustScore(
-        server.is_verified,
-        metrics?.uptime_pct ?? null,
-        metrics?.success_rate ?? null
-      );
+      const trustScore = local
+        ? localTrustScore(server.stars ?? 0)
+        : computeTrustScore(
+            server.is_verified,
+            metrics?.uptime_pct ?? null,
+            metrics?.success_rate ?? null
+          );
 
       return {
         server: server.slug,
