@@ -8,7 +8,7 @@
 
 Agents ask natural language queries like "I need to connect to Notion" or "database with read/write". Use embeddings for semantic matching.
 
-### Implementation:
+### Implementation
 
 ```sql
 -- Enable pgvector in Supabase
@@ -21,7 +21,8 @@ ALTER TABLE mcp_servers ADD COLUMN embedding vector(1536);
 CREATE INDEX ON mcp_servers USING hnsw (embedding vector_cosine_ops);
 ```
 
-### Generate embeddings with DeepSeek/OpenAI:
+### Generate embeddings with DeepSeek/OpenAI
+
 - Embed: `name + description + capabilities`
 - Store 1536-dim vectors
 - Query: embed user query → find top-k similar
@@ -50,16 +51,19 @@ CREATE INDEX idx_servers_category_verified ON mcp_servers(category, is_verified)
 ## 3. Caching Strategy
 
 ### Layer 1: Edge Cache (Vercel/Cloudflare)
+
 - Cache popular queries at edge
 - TTL: 5-15 minutes
 - Cache key: hash of query params
 
 ### Layer 2: Redis/Upstash
+
 - Cache search results
 - Cache embedding lookups
 - TTL: 1 hour
 
 ### Layer 3: In-Memory (Node.js)
+
 - LRU cache for hot queries
 - Category lists
 - Capability mappings
@@ -69,6 +73,7 @@ CREATE INDEX idx_servers_category_verified ON mcp_servers(category, is_verified)
 ## 4. Query Optimization
 
 ### Hybrid Search (Best Results)
+
 ```typescript
 async function hybridSearch(query: string, limit = 10) {
   // 1. Semantic search (embeddings)
@@ -91,7 +96,8 @@ async function hybridSearch(query: string, limit = 10) {
 }
 ```
 
-### Supabase RPC Function for Vector Search:
+### Supabase RPC Function for Vector Search
+
 ```sql
 CREATE OR REPLACE FUNCTION match_servers(
   query_embedding vector(1536),
@@ -130,6 +136,7 @@ $$;
 ## 5. Response Optimization
 
 ### Pagination
+
 ```typescript
 // Cursor-based pagination (faster than offset)
 const { data } = await supabase
@@ -141,12 +148,14 @@ const { data } = await supabase
 ```
 
 ### Field Selection
+
 ```typescript
 // Only return fields agents need
 const AGENT_FIELDS = 'id,name,slug,description,install_command,category';
 ```
 
 ### Compression
+
 - Enable gzip/brotli on API responses
 - Reduces payload 60-80%
 
@@ -155,6 +164,7 @@ const AGENT_FIELDS = 'id,name,slug,description,install_command,category';
 ## 6. Pre-computed Rankings
 
 ### Popularity Score
+
 ```sql
 ALTER TABLE mcp_servers ADD COLUMN popularity_score float DEFAULT 0;
 
@@ -166,6 +176,7 @@ ALTER TABLE mcp_servers ADD COLUMN popularity_score float DEFAULT 0;
 ```
 
 ### Category Leaders
+
 ```sql
 -- Materialized view for "top in category"
 CREATE MATERIALIZED VIEW top_servers_by_category AS
@@ -183,6 +194,7 @@ REFRESH MATERIALIZED VIEW top_servers_by_category;
 ## 7. Agent-Optimized API
 
 ### Endpoint: `/api/v1/discover`
+
 ```typescript
 interface DiscoverRequest {
   need: string;           // Natural language query
@@ -204,6 +216,7 @@ interface DiscoverResponse {
 ```
 
 ### Response Time Targets
+
 | Query Type | Target | Method |
 |------------|--------|--------|
 | By slug | <10ms | Index lookup |
@@ -215,13 +228,15 @@ interface DiscoverResponse {
 
 ## 8. Monitoring & Analytics
 
-### Track:
+### Track
+
 - Query patterns (what agents search for)
 - Popular servers
 - Failed searches (gaps in coverage)
 - Response times (P50, P95, P99)
 
-### Supabase Analytics Table:
+### Supabase Analytics Table
+
 ```sql
 CREATE TABLE search_analytics (
   id uuid PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -238,16 +253,19 @@ CREATE TABLE search_analytics (
 ## 9. Implementation Priority
 
 ### Phase 1: Essential (Do First)
+
 1. Add database indexes
 2. Implement basic caching
 3. Optimize API response fields
 
 ### Phase 2: Semantic Search
+
 1. Generate embeddings for all servers
 2. Add pgvector column and index
 3. Implement hybrid search
 
 ### Phase 3: Scale
+
 1. Edge caching
 2. Redis layer
 3. Analytics & monitoring

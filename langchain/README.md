@@ -128,9 +128,11 @@ response = agent_executor.invoke({
 Main tool class for MCP server discovery.
 
 **Parameters:**
+
 - `api_url` (str, optional): Custom API endpoint. Defaults to production server.
 
 **Methods:**
+
 - `run(query: str) -> str`: Execute discovery query synchronously
 - `arun(query: str) -> str`: Execute discovery query asynchronously
 
@@ -171,7 +173,7 @@ This tool connects to the [MCP Discovery API](https://github.com/yksanjo/mcp-dis
 - Server metadata and documentation
 - Installation instructions
 
-**Production API:** https://mcp-discovery-two.vercel.app
+**Production API:** <https://mcp-discovery-two.vercel.app>
 
 ## Error Handling
 
@@ -201,10 +203,10 @@ Contributions welcome! Areas for improvement:
 
 ## Resources
 
-- **MCP Discovery GitHub**: https://github.com/yksanjo/mcp-discovery
-- **MCP Discovery npm**: https://www.npmjs.com/package/mcp-discovery-api
-- **MCP Registry**: https://github.com/mcp
-- **LangChain Docs**: https://python.langchain.com/docs/
+- **MCP Discovery GitHub**: <https://github.com/yksanjo/mcp-discovery>
+- **MCP Discovery npm**: <https://www.npmjs.com/package/mcp-discovery-api>
+- **MCP Registry**: <https://github.com/mcp>
+- **LangChain Docs**: <https://python.langchain.com/docs/>
 
 ## License
 
@@ -212,7 +214,7 @@ MIT License - See LICENSE file for details
 
 ## Support
 
-- GitHub Issues: https://github.com/yksanjo/mcp-discovery/issues
+- GitHub Issues: <https://github.com/yksanjo/mcp-discovery/issues>
 - MCP Discovery API Status: Check Railway deployment status
 
 ## Acknowledgments

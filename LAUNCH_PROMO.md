@@ -1,14 +1,16 @@
 # MCP Discovery - Launch Promotion
 
 ## Live API
-**Production URL:** https://mcp-discovery-two.vercel.app
+
+**Production URL:** <https://mcp-discovery-two.vercel.app>
 
 ---
 
 ## X/Twitter Posts
 
 ### Main Launch Post
-```
+
+```text
 Just launched MCP Discovery - the first AI-powered search engine for MCP servers
 
 715+ servers indexed from:
@@ -24,7 +26,8 @@ Try it: https://mcp-discovery-two.vercel.app
 ```
 
 ### Technical Post
-```
+
+```text
 Built an MCP server discovery API in a weekend:
 
 - Scraped 1,800+ servers using DeepSeek
@@ -40,7 +43,8 @@ https://mcp-discovery-two.vercel.app
 ```
 
 ### Developer Post
-```
+
+```text
 Problem: Finding the right MCP server is hard
 
 Solution: Natural language search
@@ -55,7 +59,8 @@ API: https://mcp-discovery-two.vercel.app/api/v1/discover
 ```
 
 ### Stats Post
-```
+
+```text
 MCP Discovery stats after launch:
 
 Servers indexed: 715
@@ -77,12 +82,14 @@ Free API: https://mcp-discovery-two.vercel.app
 ## API Examples for Promotion
 
 ### Health Check
+
 ```bash
 curl https://mcp-discovery-two.vercel.app/health
 # {"status":"ok","service":"mcp-discovery","version":"1.0.0","servers_count":715}
 ```
 
 ### Semantic Search
+
 ```bash
 curl -X POST https://mcp-discovery-two.vercel.app/api/v1/discover \
   -H "Content-Type: application/json" \
@@ -90,11 +97,13 @@ curl -X POST https://mcp-discovery-two.vercel.app/api/v1/discover \
 ```
 
 ### List by Category
+
 ```bash
 curl "https://mcp-discovery-two.vercel.app/api/v1/servers?category=database&limit=5"
 ```
 
 ### Get Categories
+
 ```bash
 curl https://mcp-discovery-two.vercel.app/api/v1/categories
 ```
@@ -104,10 +113,12 @@ curl https://mcp-discovery-two.vercel.app/api/v1/categories
 ## Product Hunt Copy
 
 ### Tagline
-**MCP Discovery - Find the right MCP server for your AI agent**
+
+MCP Discovery - Find the right MCP server for your AI agent
 
 ### Description
-```
+
+```text
 MCP Discovery is the first search engine for Model Context Protocol (MCP) servers.
 
 With 715+ indexed servers, AI agents can find the tools they need using natural language:
@@ -125,7 +136,8 @@ Built for the MCP ecosystem to help AI agents discover and use the right tools.
 ```
 
 ### Maker Comment
-```
+
+```text
 Hey Product Hunt!
 
 I built MCP Discovery because finding the right MCP server was becoming a pain point. With 715+ servers now available, it's hard to know which one fits your needs.
@@ -142,6 +154,7 @@ Would love your feedback!
 ## GitHub README Update
 
 ### Badges
+
 ```markdown
 ![Servers](https://img.shields.io/badge/MCP%20Servers-715+-blue)
 ![API](https://img.shields.io/badge/API-Live-green)
@@ -149,7 +162,8 @@ Would love your feedback!
 ```
 
 ### Quick Start Section
-```markdown
+
+````markdown
 ## Quick Start
 
 ### Find an MCP Server
@@ -185,13 +199,13 @@ curl https://mcp-discovery-two.vercel.app/api/v1/categories
 ```bash
 curl "https://mcp-discovery-two.vercel.app/api/v1/servers?category=automation&limit=10"
 ```
-```
+````
 
 ---
 
 ## LinkedIn Post
 
-```
+```text
 Excited to launch MCP Discovery - the first search engine for Model Context Protocol servers!
 
 The Problem:
@@ -223,7 +237,8 @@ Check it out: https://mcp-discovery-two.vercel.app
 **Title:** MCP Discovery – Semantic search for 715+ MCP servers
 
 **Text:**
-```
+
+```text
 I built a search engine for Model Context Protocol (MCP) servers.
 
 MCP is Anthropic's open protocol that lets AI assistants connect to external tools. The ecosystem has grown to 700+ servers, making discovery a real problem.
@@ -251,7 +266,7 @@ Would love feedback from the HN community!
 
 ## Discord/Slack Announcement
 
-```
+````text
 🚀 **MCP Discovery is Live!**
 
 Find the right MCP server with natural language search.
@@ -275,4 +290,4 @@ curl -X POST https://mcp-discovery-two.vercel.app/api/v1/discover \
 - `GET /api/v1/categories` - Browse categories
 
 Free to use! 🎉
-```
+````

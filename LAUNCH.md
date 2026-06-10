@@ -1,7 +1,7 @@
 # 🚀 MCP DISCOVERY 2.0 - OFFICIAL LAUNCH 🚀
 
 <p align="center">
-  <img src="https://media.giphy.com/media/26ufnwz3wDUli7GD6/giphy.gif" width="400">
+  <img alt="Reaction GIF" src="https://media.giphy.com/media/26ufnwz3wDUli7GD6/giphy.gif" width="400">
 </p>
 
 ## 🎊 IT'S ALIVE! 🎊
@@ -45,7 +45,9 @@ We just scraped the ENTIRE MCP ecosystem:
 ## 🎁 What's Included
 
 ### 📄 `data/mcp_servers_complete.json` (3.1MB)
+
 Complete database with:
+
 - Server names, descriptions, install commands
 - NPM packages and GitHub URLs
 - Categories and capabilities
@@ -53,19 +55,24 @@ Complete database with:
 - Author info
 
 ### 📊 `data/mcp_servers_complete.csv` (1.7MB)
+
 Spreadsheet-friendly format for:
+
 - Excel warriors
 - Google Sheets fans
 - Data analysts
 - Database imports
 
 ### 📝 `data/MCP_SERVERS_COMPLETE.md` (23KB)
+
 Human-readable documentation with:
+
 - Top 100 servers by popularity
 - Category breakdowns
 - Complete server listings
 
 ### 📈 `data/summary.json`
+
 Quick stats and overview
 
 ---
@@ -81,6 +88,7 @@ curl -X POST https://mcp-discovery-two.vercel.app/api/v1/discover \
 ```
 
 **Returns in 50ms:**
+
 ```json
 {
   "recommendations": [
@@ -126,6 +134,7 @@ curl "https://mcp-discovery-two.vercel.app/api/v1/servers?category=database&limi
 ## 🎮 Integration Examples
 
 ### Python Agent
+
 ```python
 import requests
 
@@ -143,6 +152,7 @@ tools = agent.find_tool("database access")
 ```
 
 ### JavaScript Agent
+
 ```javascript
 async function findTool(need) {
   const response = await fetch(
@@ -179,6 +189,7 @@ async function findTool(need) {
 ## 🚦 What's Next?
 
 ### Phase 2 Goals (10,000+ servers)
+
 - [ ] PyPI scraping for Python MCP packages
 - [ ] Docker Hub container scanning
 - [ ] VS Code Marketplace extensions
@@ -186,6 +197,7 @@ async function findTool(need) {
 - [ ] Automated daily updates
 
 ### Phase 3 Goals (50,000+ servers)
+
 - [ ] Community submission portal
 - [ ] Performance metrics collection
 - [ ] User ratings and reviews
@@ -193,6 +205,7 @@ async function findTool(need) {
 - [ ] MCP server recommendations
 
 ### Phase 4 Goals (100,000+ servers)
+
 - [ ] Global MCP server network
 - [ ] Real-time discovery
 - [ ] AI-powered server generation
@@ -228,7 +241,7 @@ https://github.com/yksanjo/mcp-discovery
 </p>
 
 <p align="center">
-  <img src="https://media.giphy.com/media/26xBwdIuRJiAIq76g/giphy.gif" width="200">
+  <img alt="Reaction GIF" src="https://media.giphy.com/media/26xBwdIuRJiAIq76g/giphy.gif" width="200">
 </p>
 
 ---

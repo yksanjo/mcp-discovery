@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.2.0] - 2026-04-30
 
 ### Added
+
 - **`force_refresh` parameter** on `POST /api/v1/discover` — bypass the
   server-side cache and fetch live results without restarting the
   session. Surfaced in both the API and the LangChain `MCPDiscoveryTool`.
@@ -27,12 +28,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   documentation for callers needing allow/deny policies. (#1)
 
 ### Changed
+
 - LangChain integration README updated to reflect `force_refresh` and
   verified-badge display in formatted results.
 
 ## [1.1.0] - 2026-02-02
 
 ### Added
+
 - **AutoGPT Integration**: Native workflow blocks for AutoGPT platform
   - `MCPDiscoveryBlock` - Semantic search for MCP servers
   - `MCPDiscoveryCategoriesBlock` - Browse available categories
@@ -43,12 +46,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Keywords in package.json: `langchain`, `autogpt`, `tool-discovery`
 
 ### Changed
+
 - Updated package.json description to mention AutoGPT integration
 - Updated LangChain README with date and AutoGPT reference
 
 ## [1.0.0] - 2026-01-30
 
 ### Added
+
 - Initial release of MCP Discovery API
 - 14,000+ MCP servers indexed
 - Semantic search endpoint (`/api/v1/discover`)
@@ -59,6 +64,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Support for Glama.ai, NPM Registry, and GitHub sources
 
 ### Features
+
 - Semantic search using OpenAI embeddings
 - Performance metrics (latency, uptime)
 - Installation commands

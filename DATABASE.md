@@ -9,6 +9,7 @@ This database contains **5,468 unique MCP servers** collected from all major sou
 ### Total Servers: 5,468
 
 ### By Source
+
 | Source | Count | Percentage |
 |--------|-------|------------|
 | Glama.ai | 3,576 | 65.4% |
@@ -17,6 +18,7 @@ This database contains **5,468 unique MCP servers** collected from all major sou
 | Official Registry | 1 | 0.01% |
 
 ### By Category
+
 | Category | Count |
 |----------|-------|
 | Other | ~4,000+ |
@@ -31,7 +33,9 @@ This database contains **5,468 unique MCP servers** collected from all major sou
 ## Data Files
 
 ### `/data/mcp_servers_complete.json`
+
 Complete JSON database with all server details including:
+
 - Name and slug
 - Description
 - NPM package name
@@ -43,12 +47,15 @@ Complete JSON database with all server details including:
 - Stars/downloads
 
 ### `/data/mcp_servers_complete.csv`
+
 CSV format for easy import into spreadsheets and databases.
 
 ### `/data/MCP_SERVERS_COMPLETE.md`
+
 Human-readable markdown documentation with top servers.
 
 ### `/data/summary.json`
+
 JSON summary with statistics.
 
 ## Top Servers by Popularity
@@ -64,6 +71,7 @@ Based on GitHub stars and NPM downloads:
 ## Installation Commands
 
 Most servers can be installed with:
+
 ```bash
 npx -y @namespace/server-name
 ```
@@ -71,6 +79,7 @@ npx -y @namespace/server-name
 ## API Usage
 
 Query the live API:
+
 ```bash
 curl -X POST https://mcp-discovery-two.vercel.app/api/v1/discover \
   -H "Content-Type: application/json" \

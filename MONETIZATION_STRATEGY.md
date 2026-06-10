@@ -1,6 +1,7 @@
 # MCP Discovery API - Distribution & Monetization Strategy
 
 ## The Core Problem You're Solving
+
 **You need agents to PAY YOU, not the other way around.**
 
 ---
@@ -9,13 +10,13 @@
 
 ### Strategy 1: Become the Default Discovery Layer
 
-**Target: MCP Client Developers (Highest Impact)**
+#### Target: MCP Client Developers (Highest Impact)
 
 | Platform | Contact | Integration Type |
 |----------|---------|------------------|
-| **Anthropic/Claude** | developer-relations@anthropic.com | Built-in discovery tool |
-| **Cursor** | team@cursor.com | Default MCP discovery |
-| **Windsurf/Codeium** | support@codeium.com | Integration partnership |
+| **Anthropic/Claude** | <developer-relations@anthropic.com> | Built-in discovery tool |
+| **Cursor** | <team@cursor.com> | Default MCP discovery |
+| **Windsurf/Codeium** | <support@codeium.com> | Integration partnership |
 | **Continue.dev** | GitHub issues | Open source PR |
 | **Zed** | GitHub issues | Open source PR |
 
@@ -24,7 +25,7 @@
 
 ### Strategy 2: GitHub MCP Registry Submission
 
-Submit to: https://github.com/modelcontextprotocol/servers
+Submit to: <https://github.com/modelcontextprotocol/servers>
 
 ```markdown
 ## MCP Discovery Server
@@ -43,6 +44,7 @@ npx @mcp-tools/discovery
 ### Strategy 3: Documentation & SEO Play
 
 Create content that ranks for:
+
 - "MCP server list"
 - "best MCP servers"
 - "MCP server for [database/email/etc]"
@@ -53,7 +55,8 @@ Create content that ranks for:
 ### Strategy 4: MCP Server Creator Outreach
 
 **Email template for MCP server creators:**
-```
+
+```text
 Subject: Get your MCP server discovered by AI agents
 
 Hi [Creator],
@@ -92,7 +95,7 @@ Target popular agent frameworks:
 
 ### Pricing Model: Freemium + Usage-Based
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │                     FREE TIER                                │
 │  • 100 discovery queries/month                               │
@@ -142,7 +145,7 @@ if (tier !== 'enterprise' && usage >= RATE_LIMITS[tier]) {
 
 ### Revenue Stream 2: MCP Server Creators Pay for Visibility
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │              SERVER CREATOR TIERS                            │
 ├─────────────────────────────────────────────────────────────┤
@@ -165,11 +168,13 @@ if (tier !== 'enterprise' && usage >= RATE_LIMITS[tier]) {
 ### Revenue Stream 3: Enterprise Licensing
 
 **Target customers:**
+
 - Agent platforms (Anthropic, Cursor, etc.)
 - Large companies building internal agents
 - AI consulting firms
 
 **Pricing:** $500-5000/month based on:
+
 - Query volume
 - SLA requirements
 - Custom features
@@ -255,23 +260,27 @@ app.post('/api/webhooks/stripe', async (req, res) => {
 ## Part 4: Go-to-Market Timeline
 
 ### Week 1-2: Foundation
+
 - [ ] Add API key system
 - [ ] Implement rate limiting
 - [ ] Create pricing page
 - [ ] Set up Stripe
 
 ### Week 3-4: Launch
+
 - [ ] Publish to npm
 - [ ] Submit to GitHub MCP Registry
 - [ ] Post on Twitter, Reddit, HN
 - [ ] Email MCP server creators
 
 ### Month 2: Growth
+
 - [ ] Partner outreach (Cursor, Anthropic)
 - [ ] Content marketing (blog posts, tutorials)
 - [ ] First paying customers
 
 ### Month 3: Scale
+
 - [ ] 100+ servers indexed
 - [ ] Automated scraping
 - [ ] Server creator portal
@@ -281,7 +290,7 @@ app.post('/api/webhooks/stripe', async (req, res) => {
 
 ## Part 5: Competitive Moat
 
-### Why agents will use YOU, not alternatives:
+### Why agents will use YOU, not alternatives
 
 1. **Data Network Effect**
    - More servers indexed → Better search → More usage → More data → Better ranking
@@ -305,30 +314,36 @@ app.post('/api/webhooks/stripe', async (req, res) => {
 ## Quick Wins to Implement TODAY
 
 ### 1. Add Free Tier with Email Signup
-```
+
+```text
 Free: 100 queries/month
 Just need email to get API key
 → Builds email list for upgrades
 ```
 
 ### 2. Add "Powered by MCP Discovery" Badge
+
 ```html
 <a href="https://mcp-discovery.com">
   <img src="badge.svg" alt="Powered by MCP Discovery">
 </a>
 ```
+
 Server creators display this → Free marketing
 
 ### 3. Create Public Server Directory
-```
+
+```text
 mcp-discovery.com/servers
 mcp-discovery.com/servers/database
 mcp-discovery.com/servers/communication
 ```
+
 → SEO traffic → Conversions
 
 ### 4. Affiliate/Referral Program
-```
+
+```text
 Refer 3 paying users → 1 month free
 Server creators get commission on Pro signups they drive
 ```
@@ -337,7 +352,7 @@ Server creators get commission on Pro signups they drive
 
 ## Summary: The Business Model
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │                    REVENUE SOURCES                           │
 ├─────────────────────────────────────────────────────────────┤
@@ -358,6 +373,7 @@ Server creators get commission on Pro signups they drive
 ```
 
 **Break-even math:**
+
 - OpenAI embeddings: ~$0.0001/query
 - Supabase: $25/mo (Pro)
 - Railway: $5-20/mo

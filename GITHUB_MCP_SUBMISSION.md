@@ -1,12 +1,12 @@
 # GitHub MCP Registry Submission
 
-## PR to: https://github.com/modelcontextprotocol/servers
+## PR to: <https://github.com/modelcontextprotocol/servers>
 
 ### File to Add: `src/mcp-discovery/README.md`
 
 ---
 
-# MCP Discovery Server
+## MCP Discovery Server
 
 Enables AI agents to discover, evaluate, and select MCP servers dynamically using semantic search.
 
@@ -65,6 +65,7 @@ Or use the hosted API:
 Find MCP servers matching a natural language requirement.
 
 **Input:**
+
 ```json
 {
   "need": "database with authentication",
@@ -77,6 +78,7 @@ Find MCP servers matching a natural language requirement.
 ```
 
 **Output:**
+
 ```json
 {
   "recommendations": [
@@ -102,6 +104,7 @@ Find MCP servers matching a natural language requirement.
 Get performance metrics for a specific MCP server.
 
 **Input:**
+
 ```json
 {
   "server_id": "postgres-server",
@@ -114,6 +117,7 @@ Get performance metrics for a specific MCP server.
 Compare multiple MCP servers side-by-side.
 
 **Input:**
+
 ```json
 {
   "server_ids": ["postgres-server", "sqlite-server"],
@@ -130,6 +134,7 @@ Hosted API available at: `https://mcp-discovery-production.up.railway.app`
 - **Enterprise**: Unlimited (custom pricing)
 
 Get an API key:
+
 ```bash
 curl -X POST https://mcp-discovery-production.up.railway.app/api/v1/keys \
   -H "Content-Type: application/json" \
@@ -138,9 +143,9 @@ curl -X POST https://mcp-discovery-production.up.railway.app/api/v1/keys \
 
 ## Links
 
-- **GitHub**: https://github.com/yksanjo/mcp-discovery
-- **API**: https://mcp-discovery-production.up.railway.app
-- **npm**: https://www.npmjs.com/package/mcp-discovery-api
+- **GitHub**: <https://github.com/yksanjo/mcp-discovery>
+- **API**: <https://mcp-discovery-production.up.railway.app>
+- **npm**: <https://www.npmjs.com/package/mcp-discovery-api>
 
 ## License
 
@@ -152,28 +157,32 @@ MIT
 
 ### Title: Add MCP Discovery Server - Semantic search for MCP servers
 
-### Description:
+### Description
 
 This PR adds **MCP Discovery Server** - a discovery and routing layer that enables AI agents to find the right MCP server for any task.
 
 **Why this matters:**
+
 - Agents are currently limited to pre-configured MCP servers
 - No way to dynamically discover new capabilities
 - No performance/reliability data available
 
 **What MCP Discovery provides:**
+
 - Semantic search using embeddings (24 servers indexed)
 - Performance metrics (latency, uptime)
 - Side-by-side server comparison
 - Free hosted API + self-hosted option
 
 **Tools:**
+
 - `discover_mcp_server` - Find servers matching natural language needs
 - `get_server_metrics` - Get performance data
 - `compare_servers` - Compare multiple servers
 
 **Links:**
-- Repo: https://github.com/yksanjo/mcp-discovery
-- Live API: https://mcp-discovery-production.up.railway.app
+
+- Repo: <https://github.com/yksanjo/mcp-discovery>
+- Live API: <https://mcp-discovery-production.up.railway.app>
 
 Happy to address any feedback!

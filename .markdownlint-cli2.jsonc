@@ -1,0 +1,15 @@
+{
+  // Lint real docs only — generated scrape dumps and deps are excluded.
+  "ignores": [
+    "node_modules/**",
+    "data/**",
+    "data_massive/**"
+  ],
+  "config": {
+    // Stylistic rules that don't suit this repo's docs.
+    "MD013": false, // line-length: long lines are fine in prose/tables
+    "MD033": false, // inline HTML: badges/centered headers in README
+    "MD024": { "siblings_only": true }, // CHANGELOG repeats section names per release
+    "MD060": false // table pipe spacing: cosmetic, tables render fine either way
+  }
+}

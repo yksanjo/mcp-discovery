@@ -40,7 +40,7 @@ print(result)
 
 ### 2. Fork LangChain Repository
 
-1. Go to https://github.com/langchain-ai/langchain
+1. Go to <https://github.com/langchain-ai/langchain>
 2. Click "Fork" button (top right)
 3. This creates your own copy at `github.com/YOUR_USERNAME/langchain`
 
@@ -122,7 +122,7 @@ git push origin add-mcp-discovery-tool
 
 After submitting the PR, go back to issue #34795 and comment:
 
-```
+```text
 Hey @dhansuhkumar, thanks again for the interest!
 
 I've implemented and submitted the MCP Discovery tool in PR #XXXXX.
@@ -172,6 +172,7 @@ Feel free to review and provide feedback on the PR!
 ### Import Errors
 
 Make sure you're importing from the right location:
+
 ```python
 from langchain_community.tools.mcp_discovery import MCPDiscoveryTool
 ```
@@ -179,6 +180,7 @@ from langchain_community.tools.mcp_discovery import MCPDiscoveryTool
 ### Test Failures
 
 If tests fail, check:
+
 - Are dependencies installed?
 - Is requests library mocked properly?
 - Are you in the right directory?
@@ -186,6 +188,7 @@ If tests fail, check:
 ### LangChain Style Requirements
 
 They may ask you to:
+
 - Format with `black`
 - Add type hints
 - Update their main tool list
@@ -195,13 +198,14 @@ Be flexible and responsive!
 
 ## Resources
 
-- LangChain Contributing Guide: https://github.com/langchain-ai/langchain/blob/master/CONTRIBUTING.md
-- LangChain Tools Documentation: https://python.langchain.com/docs/modules/tools/
-- GitHub PR Best Practices: https://docs.github.com/en/pull-requests/collaborating-with-pull-requests
+- LangChain Contributing Guide: <https://github.com/langchain-ai/langchain/blob/master/CONTRIBUTING.md>
+- LangChain Tools Documentation: <https://python.langchain.com/docs/modules/tools/>
+- GitHub PR Best Practices: <https://docs.github.com/en/pull-requests/collaborating-with-pull-requests>
 
 ## Questions?
 
 If you get stuck:
+
 1. Check LangChain's Discord
 2. Look at other tool PRs for examples
 3. Ask in the GitHub issue

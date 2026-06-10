@@ -1,6 +1,6 @@
 # 📁 Repository Structure
 
-```
+```text
 mcp-discovery/
 │
 ├── 📄 README.md                          ← 🎉 FUN README with GIFs

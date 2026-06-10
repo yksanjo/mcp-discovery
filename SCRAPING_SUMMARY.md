@@ -1,39 +1,46 @@
 # MCP Server Scraping Summary
 
 ## Overview
+
 Successfully scraped **5,468 unique MCP servers** from multiple sources.
 
 ## Data Sources
 
 ### 1. Glama.ai API
-- **URL:** https://glama.ai/api/mcp/v1/servers
+
+- **URL:** <https://glama.ai/api/mcp/v1/servers>
 - **Servers Found:** 3,990 (before deduplication: 3,576 unique)
 - **Method:** Paginated API requests with cursor-based pagination
 - **Rate Limit:** ~100ms between requests
 
 ### 2. NPM Registry
-- **URL:** https://registry.npmjs.org/-/v1/search
+
+- **URL:** <https://registry.npmjs.org/-/v1/search>
 - **Packages Found:** 598 unique MCP-related packages
 - **Search Terms:** `mcp-server`, `model-context-protocol`, `@modelcontextprotocol`
 - **Method:** Registry search API
 
 ### 3. Awesome MCP Lists
-- **Sources:** 
+
+- **Sources:**
   - punkpeye/awesome-mcp-servers
   - wong2/awesome-mcp-servers
 - **Servers Found:** 1,293 (many from GitHub repo links)
 - **Method:** Markdown parsing for npm commands and GitHub URLs
 
 ### 4. Official MCP Registry
-- **URL:** https://registry.modelcontextprotocol.io/v0.1/servers
+
+- **URL:** <https://registry.modelcontextprotocol.io/v0.1/servers>
 - **Servers Found:** 30
 - **Method:** Official registry API with cursor pagination
 
 ### 5. Smithery.ai
-- **URL:** https://smithery.ai/api/servers
+
+- **URL:** <https://smithery.ai/api/servers>
 - **Servers Found:** 0 (API returned empty or access restricted)
 
 ### 6. GitHub Topics
+
 - **Topics:** mcp-server, model-context-protocol
 - **Method:** GitHub topic page scraping
 - **Note:** Limited due to rate limiting
@@ -41,7 +48,9 @@ Successfully scraped **5,468 unique MCP servers** from multiple sources.
 ## Files Generated
 
 ### `/data/mcp_servers_complete.json` (3.2MB)
+
 Complete JSON database with all server attributes:
+
 - name, slug, description
 - npm_package, github_url
 - install_command, category
@@ -49,24 +58,31 @@ Complete JSON database with all server attributes:
 - stars, downloads
 
 ### `/data/mcp_servers_complete.csv` (1.8MB)
+
 CSV format for easy import into:
+
 - Spreadsheets (Excel, Google Sheets)
 - Databases (PostgreSQL, MySQL, SQLite)
 - Data analysis tools (Pandas, R)
 
 ### `/data/MCP_SERVERS_COMPLETE.md` (23KB)
+
 Human-readable documentation with:
+
 - Top 100 servers by stars
 - Category breakdown
 - Full server list (top 500)
 
 ### `/data/summary.json`
+
 JSON summary with statistics and category counts
 
 ### `DATABASE.md`
+
 Database documentation and usage guide
 
 ### `scripts/seed-data-massive.ts` (2.4MB)
+
 TypeScript seed file for database initialization
 Contains 5,000 servers in seed format
 
@@ -83,6 +99,7 @@ Contains 5,000 servers in seed format
 - **Removed:** 705 duplicates (11.4%)
 
 ### Deduplication Strategy
+
 - Key by npm package name (npm:package-name)
 - Key by GitHub URL (github:owner/repo)
 - Key by slug (slug:server-name)

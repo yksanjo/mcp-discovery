@@ -1,7 +1,7 @@
 # 🚨 MCP DISCOVERY 2.0 🚨
 
 <p align="center">
-  <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" width="300">
+  <img alt="Reaction GIF" src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" width="300">
 </p>
 
 <h1 align="center">
@@ -9,9 +9,9 @@
 </h1>
 
 <p align="center">
-  <a href="#"><img src="https://img.shields.io/badge/Servers-5,000%2B-red?style=for-the-badge&logo=fire"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Status-LIVE-brightgreen?style=for-the-badge"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Built%20For-AI%20AGENTS-purple?style=for-the-badge&logo=robot"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Servers-5,000%2B-red?style=for-the-badge&logo=fire" alt="Servers: 5,000+ badge"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Status-LIVE-brightgreen?style=for-the-badge" alt="Status: LIVE badge"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Built%20For-AI%20AGENTS-purple?style=for-the-badge&logo=robot" alt="Built for AI agents badge"></a>
 </p>
 
 <p align="center">
@@ -24,12 +24,13 @@
 ## 🎬 What Is This Madness?
 
 <p align="center">
-  <img src="https://media.giphy.com/media/l0HlNQ03J5JxX6lva/giphy.gif" width="400">
+  <img alt="Reaction GIF" src="https://media.giphy.com/media/l0HlNQ03J5JxX6lva/giphy.gif" width="400">
 </p>
 
-**MCP Discovery** is like Google, but for AI agents looking for tools. Instead of searching for 10 minutes, your agent queries our API and gets the perfect MCP server in **50ms**. 
+**MCP Discovery** is like Google, but for AI agents looking for tools. Instead of searching for 10 minutes, your agent queries our API and gets the perfect MCP server in **50ms**.
 
 **Think about it:**
+
 - Human: "Help me analyze my GitHub repos"
 - Agent: *calls API* → *gets github-server* → *installs* → *DONE*
 
@@ -49,6 +50,7 @@ curl -X POST https://mcp-discovery-two.vercel.app/api/v1/discover \
 ```
 
 **Returns:**
+
 ```json
 {
   "recommendations": [
@@ -64,7 +66,7 @@ curl -X POST https://mcp-discovery-two.vercel.app/api/v1/discover \
 ```
 
 <p align="center">
-  <img src="https://media.giphy.com/media/3o7qE1YN7aPRx0p6Wk/giphy.gif" width="250">
+  <img alt="Reaction GIF" src="https://media.giphy.com/media/3o7qE1YN7aPRx0p6Wk/giphy.gif" width="250">
 </p>
 
 ---
@@ -83,11 +85,12 @@ curl -X POST https://mcp-discovery-two.vercel.app/api/v1/discover \
 ## 🎮 How It Works (The Cool Part)
 
 <p align="center">
-  <img src="https://media.giphy.com/media/26ufnwz3wDUli7GD6/giphy.gif" width="350">
+  <img alt="Reaction GIF" src="https://media.giphy.com/media/26ufnwz3wDUli7GD6/giphy.gif" width="350">
 </p>
 
-### Without MCP Discovery:
-```
+### Without MCP Discovery
+
+```text
 User: "I need to access a database"
 Agent: "Which database? PostgreSQL? MySQL? MongoDB? Redis?"
 User: "Uh... PostgreSQL I guess?"
@@ -95,8 +98,9 @@ Agent: "Which MCP server? There are 50 different ones..."
 User: *googles for 10 minutes*
 ```
 
-### With MCP Discovery:
-```
+### With MCP Discovery
+
+```text
 User: "I need to access a database"
 Agent: *calls API* *gets postgres-server* *installs* *DONE*
 User: 😎
@@ -109,6 +113,7 @@ User: 😎
 ## 🛠️ Integration Examples
 
 ### Python Agents
+
 ```python
 import requests
 
@@ -127,6 +132,7 @@ tools = agent.discover_tool("I need to query a PostgreSQL database")
 ```
 
 ### JavaScript Agents  
+
 ```javascript
 async function discoverMCPTool(need) {
   const response = await fetch('https://mcp-discovery-two.vercel.app/api/v1/discover', {
@@ -171,7 +177,7 @@ Want the raw data? We got you:
 ## 🎭 Categories (Pick Your Poison)
 
 <p align="center">
-  <img src="https://media.giphy.com/media/l0HlNd1sgO7RkYQEw/giphy.gif" width="300">
+  <img alt="Reaction GIF" src="https://media.giphy.com/media/l0HlNd1sgO7RkYQEw/giphy.gif" width="300">
 </p>
 
 - 🗄️ **Database** - PostgreSQL, SQLite, MongoDB, Redis, and MORE
@@ -222,6 +228,7 @@ vercel --prod
 ```
 
 **Requirements:**
+
 - Supabase (PostgreSQL + pgvector)
 - OpenAI API key (for embeddings)
 - Vercel account (for hosting)
@@ -231,7 +238,7 @@ vercel --prod
 ## 🎯 The Vision
 
 <p align="center">
-  <img src="https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif" width="300">
+  <img alt="Reaction GIF" src="https://media.giphy.com/media/3o7TKMt1VVNkHV2PaE/giphy.gif" width="300">
 </p>
 
 **Today:** 5,000+ servers indexed  
@@ -265,5 +272,5 @@ MIT - Do whatever you want, just don't blame us if your agent becomes TOO powerf
 </p>
 
 <p align="center">
-  <img src="https://media.giphy.com/media/26xBwdIuRJiAIq76g/giphy.gif" width="200">
+  <img alt="Reaction GIF" src="https://media.giphy.com/media/26xBwdIuRJiAIq76g/giphy.gif" width="200">
 </p>

@@ -2,7 +2,7 @@
 
 ## 1. Anthropic (SEND FIRST - Warmest Lead)
 
-**To:** developer-relations@anthropic.com, Alex Albert
+**To:** <developer-relations@anthropic.com>, Alex Albert
 **Subject:** MCP Discovery → Agent Tool Index - Partnership Proposal
 
 ---
@@ -12,13 +12,15 @@ Hi Anthropic team,
 I'm Yoshi, Global Head of BD at Soundraw (AI music platform powering JPMorgan, Discord, Panasonic).
 
 Yesterday I launched MCP Discovery - the semantic search layer for MCP servers. It's already:
-- Live: https://mcp-discovery-production.up.railway.app
+
+- Live: <https://mcp-discovery-production.up.railway.app>
 - 24 MCP servers indexed with embeddings
 - PR submitted to your MCP registry
 
 **But here's the bigger vision:**
 
 I'm expanding this into the **Agent Tool Index** - a universal discovery layer for ANY tool agents need:
+
 - MCP servers (done)
 - REST/GraphQL APIs (50,000+ from APIs.guru, RapidAPI)
 - Python packages
@@ -27,6 +29,7 @@ I'm expanding this into the **Agent Tool Index** - a universal discovery layer f
 **Why this matters for Anthropic:**
 
 Claude agents are limited to pre-configured tools. With Agent Tool Index:
+
 - Claude discovers tools automatically based on user intent
 - Performance metrics help choose reliable options
 - One API call returns ready-to-use integration code
@@ -42,14 +45,14 @@ I can be in SF anytime. Would love 30 minutes to explore.
 Best,
 Yoshi
 
-GitHub: https://github.com/yksanjo/mcp-discovery
-Live API: https://mcp-discovery-production.up.railway.app
+GitHub: <https://github.com/yksanjo/mcp-discovery>
+Live API: <https://mcp-discovery-production.up.railway.app>
 
 ---
 
 ## 2. Stripe
 
-**To:** partnerships@stripe.com
+**To:** <partnerships@stripe.com>
 **Subject:** Featured API Partner - Agent Tool Discovery Platform
 
 ---
@@ -63,14 +66,16 @@ I'm building the discovery layer for AI agent tools - think "the API directory t
 Every agent that handles money needs Stripe. But right now, agents can't discover APIs - they're limited to what developers pre-configure.
 
 My platform changes that:
+
 - Agent asks: "I need to process payments"
 - Returns: Stripe (98% match) + integration code + uptime metrics
 
 **Current traction:**
+
 - 24 MCP servers indexed (expanding to 50,000+ APIs)
 - Live API with semantic search
 - Submitted to Anthropic's MCP registry
-- GitHub: https://github.com/yksanjo/mcp-discovery
+- GitHub: <https://github.com/yksanjo/mcp-discovery>
 
 **Partnership proposal:**
 
@@ -89,7 +94,7 @@ Yoshi
 
 ## 3. Supabase
 
-**To:** partnerships@supabase.com, @supabase DM
+**To:** <partnerships@supabase.com>, @supabase DM
 **Subject:** Agent Tool Discovery - Supabase as Default Database
 
 ---
@@ -99,6 +104,7 @@ Hey Supabase team,
 Building something you might like: Agent Tool Index - semantic search for AI agent tools.
 
 **Already using Supabase:**
+
 - My platform runs on Supabase + pgvector
 - Supabase is indexed as a top database recommendation
 - When agents ask "I need a database with auth" → Supabase comes up first
@@ -113,8 +119,9 @@ Expand from MCP servers to ALL APIs agents need. 50,000+ tools indexed.
 3. Case study: "How Agent Tool Index uses Supabase"
 
 **Current state:**
-- Live: https://mcp-discovery-production.up.railway.app
-- GitHub: https://github.com/yksanjo/mcp-discovery
+
+- Live: <https://mcp-discovery-production.up.railway.app>
+- GitHub: <https://github.com/yksanjo/mcp-discovery>
 - Using your pgvector for semantic search
 
 Agent builders are high-value customers - they scale fast. Let's make Supabase the default.
@@ -126,7 +133,7 @@ Yoshi
 
 ## 4. Twilio
 
-**To:** partners@twilio.com
+**To:** <partners@twilio.com>
 **Subject:** AI Agent Communication Layer - Partnership Opportunity
 
 ---
@@ -140,6 +147,7 @@ I'm building Agent Tool Index - the discovery layer for AI agent tools.
 Every agent that communicates with users needs Twilio (SMS, voice, email via SendGrid). But agents can't discover APIs automatically - yet.
 
 My platform enables:
+
 - Agent: "I need to send SMS notifications"
 - Returns: Twilio (95% match) + ready-to-use code + pricing info
 
@@ -150,11 +158,13 @@ My platform enables:
 3. **Integration templates** - Copy-paste code for every agent framework
 
 **Current traction:**
+
 - Live semantic search API
 - Expanding to 50,000+ tools
 - Enterprise background: Soundraw BD (JPMorgan, Discord, Panasonic)
 
 **The ask:**
+
 - Featured placement in communication category
 - Co-marketing to agent developers
 - Usage analytics sharing
@@ -164,13 +174,13 @@ Let's make Twilio the default communication layer for AI agents.
 Best,
 Yoshi
 
-GitHub: https://github.com/yksanjo/mcp-discovery
+GitHub: <https://github.com/yksanjo/mcp-discovery>
 
 ---
 
 ## 5. OpenAI
 
-**To:** partnerships@openai.com
+**To:** <partnerships@openai.com>
 **Subject:** Tool Discovery for GPTs & Assistants API
 
 ---
@@ -186,13 +196,15 @@ GPTs and Assistants are limited to pre-configured actions. There's no way to dyn
 **My solution:**
 
 Agent Tool Index - universal search across:
+
 - 50,000+ REST/GraphQL APIs
 - MCP servers (Anthropic's protocol)
 - Python packages
 - Browser automation tools
 
 **How it works:**
-```
+
+```text
 User: "Help me send an invoice"
 Agent calls: discover_tools({ need: "invoicing" })
 Returns: Stripe Invoicing, QuickBooks, FreshBooks + integration code
@@ -205,7 +217,8 @@ Returns: Stripe Invoicing, QuickBooks, FreshBooks + integration code
 3. **Plugins replacement** - Structured tool discovery
 
 **Current traction:**
-- Live API: https://mcp-discovery-production.up.railway.app
+
+- Live API: <https://mcp-discovery-production.up.railway.app>
 - Semantic search with embeddings (using your text-embedding-3-small)
 - Growing developer adoption
 
@@ -222,16 +235,17 @@ Yoshi
 
 | Company | Email | Twitter/X DM |
 |---------|-------|--------------|
-| Anthropic | developer-relations@anthropic.com | @alexalbert__ |
-| Stripe | partnerships@stripe.com | @stripe |
-| Supabase | partnerships@supabase.com | @supabase, @kiwicopple |
-| Twilio | partners@twilio.com | @twilio |
-| OpenAI | partnerships@openai.com | @OpenAI |
+| Anthropic | <developer-relations@anthropic.com> | @alexalbert__ |
+| Stripe | <partnerships@stripe.com> | @stripe |
+| Supabase | <partnerships@supabase.com> | @supabase, @kiwicopple |
+| Twilio | <partners@twilio.com> | @twilio |
+| OpenAI | <partnerships@openai.com> | @OpenAI |
 
 ## DM Templates (Twitter/X)
 
 **For API companies:**
-```
+
+```text
 Hey! Building Agent Tool Index - semantic search for AI agent tools.
 
 [Your API] is already indexed. Agents searching for [category] get you as top result.
@@ -242,7 +256,8 @@ Live: github.com/yksanjo/mcp-discovery
 ```
 
 **For developer advocates:**
-```
+
+```text
 Built something you might find interesting - Agent Tool Index.
 
 Semantic search that helps AI agents discover the right API for any task. 50K+ tools.

@@ -9,11 +9,13 @@ Related issue: #34795
 ## Motivation
 
 Currently, LangChain agents work with pre-configured toolsets. This limitation means:
+
 - Agents can't adapt to new requirements that need different tools
 - Users must manually research and configure all possible tools upfront
 - No way to compare tools based on performance metrics
 
 The MCP Discovery tool solves this by allowing agents to:
+
 - Search for tools using natural language (e.g., "I need to query a database")
 - Compare servers based on performance metrics (latency, uptime)
 - Get installation instructions automatically
@@ -22,12 +24,14 @@ The MCP Discovery tool solves this by allowing agents to:
 ## What's New
 
 ### Core Implementation
+
 - **MCPDiscoveryTool**: BaseTool subclass implementing MCP server discovery
 - **Semantic Search**: Natural language queries for capability matching
 - **Performance Metrics**: Returns latency, uptime, and match scores
 - **Error Handling**: Graceful handling of timeouts, connection errors, and empty results
 
 ### Documentation
+
 - Comprehensive README with examples
 - Jupyter notebook with 7 complete usage examples
 - Inline documentation and type hints
@@ -81,6 +85,7 @@ python -m pytest test_mcp_discovery_tool.py -v
 ```
 
 Test coverage includes:
+
 - ✅ Successful discovery with formatted output
 - ✅ Empty results handling
 - ✅ Timeout and connection error handling
@@ -91,7 +96,8 @@ Test coverage includes:
 ## Backend Service
 
 The tool connects to the [MCP Discovery API](https://github.com/yksanjo/mcp-discovery):
-- **Production endpoint**: https://mcp-discovery-production.up.railway.app
+
+- **Production endpoint**: <https://mcp-discovery-production.up.railway.app>
 - **Open source**: MIT licensed
 - **Current index**: 24+ MCP servers
 - **Free tier**: 100 queries/month
@@ -113,6 +119,7 @@ None - this is a new tool addition.
 ## Future Enhancements
 
 Potential improvements for future PRs:
+
 - Async HTTP support with `aiohttp`
 - Result caching for frequently queried capabilities
 - Filter by server capabilities/tags
@@ -120,7 +127,7 @@ Potential improvements for future PRs:
 
 ## Related Links
 
-- MCP Discovery GitHub: https://github.com/yksanjo/mcp-discovery
-- MCP Discovery npm: https://www.npmjs.com/package/mcp-discovery-api
-- Model Context Protocol: https://github.com/mcp
+- MCP Discovery GitHub: <https://github.com/yksanjo/mcp-discovery>
+- MCP Discovery npm: <https://www.npmjs.com/package/mcp-discovery-api>
+- Model Context Protocol: <https://github.com/mcp>
 - Original feature request: #34795

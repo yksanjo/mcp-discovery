@@ -3,7 +3,8 @@
 ## Twitter/X Posts
 
 ### Launch Announcement
-```
+
+```text
 🚀 Just launched: MCP Discovery API
 
 The discovery layer that AI agents use to find the right MCP server for any task.
@@ -20,7 +21,8 @@ GitHub: github.com/yksanjo/mcp-discovery
 ```
 
 ### Technical Thread
-```
+
+```text
 Thread: Why I built MCP Discovery API 🧵
 
 1/ AI agents are limited to pre-configured tools. They can't discover new capabilities dynamically.
@@ -52,7 +54,8 @@ GitHub: github.com/yksanjo/mcp-discovery
 ```
 
 ### Short Hook Posts
-```
+
+```text
 Agents don't have loyalty.
 
 They'll recommend the tool with better docs, lower latency, and higher uptime.
@@ -62,7 +65,7 @@ MCP Discovery API: Let agents find the best MCP server for any task.
 github.com/yksanjo/mcp-discovery
 ```
 
-```
+```text
 What if Claude could discover new tools on its own?
 
 MCP Discovery API makes it possible.
@@ -79,7 +82,8 @@ Open source: github.com/yksanjo/mcp-discovery
 ## Reddit Posts
 
 ### r/ClaudeAI
-```
+
+```text
 Title: I built an MCP Discovery API - lets Claude find the best MCP server for any task
 
 Hey everyone,
@@ -108,7 +112,8 @@ Would love feedback from the community!
 ```
 
 ### r/LocalLLaMA
-```
+
+```text
 Title: MCP Discovery API - Infrastructure for agent tool discovery
 
 Built an open-source discovery layer for MCP (Model Context Protocol) servers.
@@ -129,7 +134,7 @@ GitHub: https://github.com/yksanjo/mcp-discovery
 
 ## Hacker News
 
-```
+```text
 Title: Show HN: MCP Discovery API – Let AI agents find the right tools automatically
 
 Hi HN,
@@ -162,7 +167,7 @@ Feedback welcome!
 
 ## LinkedIn
 
-```
+```text
 🚀 Excited to announce MCP Discovery API
 
 The infrastructure layer that enables AI agents to discover the right tools automatically.
@@ -193,7 +198,7 @@ This is the beginning of truly autonomous agents that can adapt their toolset on
 
 ## Product Hunt (for later)
 
-```
+```text
 Tagline: The discovery API that AI agents use to find the right MCP server
 
 Description:
