@@ -172,7 +172,7 @@ class TestFactoryFunction(unittest.TestCase):
         self.assertIsInstance(tool, MCPDiscoveryTool)
         self.assertEqual(
             tool.api_url,
-            "https://mcp-discovery-two.vercel.app"
+            "http://localhost:3000"
         )
     
     def test_create_custom_tool(self):

@@ -7,7 +7,7 @@ A LangChain tool that enables agents to dynamically discover Model Context Proto
 
 ## Overview
 
-The MCP Discovery tool provides semantic search over **14,000+ indexed MCP servers**, allowing LangChain agents to:
+The MCP Discovery tool provides semantic search over a self-hosted index of 17,000+ MCP servers, allowing LangChain agents to:
 
 - 🔍 **Discover tools dynamically** based on natural language queries
 - 📊 **Compare performance metrics** (latency, uptime) before selecting servers
@@ -129,7 +129,7 @@ Main tool class for MCP server discovery.
 
 **Parameters:**
 
-- `api_url` (str, optional): Custom API endpoint. Defaults to production server.
+- `api_url` (str, optional): Custom API endpoint. Defaults to `http://localhost:3000` (your self-hosted API).
 
 **Methods:**
 
@@ -168,12 +168,12 @@ See [examples.ipynb](examples.ipynb) for comprehensive examples including:
 
 This tool connects to the [MCP Discovery API](https://github.com/yksanjo/mcp-discovery), which indexes and provides semantic search over:
 
-- **14,000+ MCP servers** - The world's largest index
+- **17,000+ MCP servers** in the bundled snapshot
 - Real-time performance metrics
 - Server metadata and documentation
 - Installation instructions
 
-**Production API:** <https://mcp-discovery-two.vercel.app>
+**API endpoint:** self-hosted — deploy the REST API from the main repo (`npm run start`) and point `api_url` at it. There is currently no public hosted instance.
 
 ## Error Handling
 

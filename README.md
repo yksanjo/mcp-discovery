@@ -1,114 +1,117 @@
 # mcp-discovery
 
-Production-grade project scaffold focused on reliability, maintainability, and fast onboarding.
+An MCP server that helps AI agents find other MCP servers.
 
 [![CI](https://img.shields.io/github/actions/workflow/status/yksanjo/mcp-discovery/ci.yml?branch=main&label=ci)](https://github.com/yksanjo/mcp-discovery/actions)
 ![License](https://img.shields.io/github/license/yksanjo/mcp-discovery)
 ![Last Commit](https://img.shields.io/github/last-commit/yksanjo/mcp-discovery)
-![Repo Size](https://img.shields.io/github/repo-size/yksanjo/mcp-discovery)
 
-## Overview
+Ask in natural language — *"what's available for sending Slack
+messages?"* — and get back ranked servers with install commands and
+trust signals, instead of maintaining a hand-curated config file.
 
-mcp-discovery is the agent-native discovery and routing layer for the
-Model Context Protocol ecosystem. It indexes 14,000+ MCP servers across
-Glama.ai, NPM, and GitHub and serves them through a semantic-search API
-so AI agents can find the right tool for a task at runtime instead of
-relying on a static, hand-curated config file.
+Ships with a bundled registry snapshot of **17,785 unique MCP servers**
+(deduplicated from 18,366 raw records scraped 2026-02-09 from Glama.ai,
+npm, GitHub topics, and awesome lists). Works fully offline with zero
+API keys.
 
-**Live API:** `https://mcp-discovery-two.vercel.app`
-
-## Problem
-
-The MCP ecosystem grew faster than agents can keep up with. Most agents
-hard-code their MCP servers in a config file; adding a new server
-requires a code change and a session restart. There's no way for an
-agent to ask, *"What's available for sending Slack messages?"* and get
-a ranked list of options it can install on demand.
-
-mcp-discovery fixes that. Agents query in natural language, get back
-ranked servers with install commands, latency metrics, and trust
-signals, and can install on the fly.
-
-## Solution
-
-- **Semantic search** over 14,000+ servers (OpenAI embeddings, sub-100ms p50).
-- **Trust signals** in every response: `is_verified` flag, `trust_score`
-  (0–100), uptime %, average latency.
-- **Native integrations** with [LangChain](./langchain/) (`MCPDiscoveryTool`)
-  and [AutoGPT](https://github.com/Significant-Gravitas/AutoGPT/issues/11793)
-  (`MCPDiscoveryBlock`, `MCPDiscoveryCategoriesBlock`).
-- **Filtering** via `exclude_servers` for allow/deny policies — see
-  [SECURITY.md](./SECURITY.md).
-- **`force_refresh`** to bypass cache when you need live data.
-
-## Key Features
-
-- 14,000+ MCP servers indexed (Glama.ai, NPM, GitHub).
-- `/api/v1/discover` — semantic search with optional filters.
-- `/api/v1/categories` — browse by capability.
-- `/api/v1/servers/:slug` — full server detail.
-- LangChain `MCPDiscoveryTool` with true async (`aiohttp`).
-- AutoGPT workflow blocks for the same.
-- LRU cache with per-type TTLs (5m search / 1h embeddings / 10m server data).
-
-## Repository Structure
-
-```text
-.
-|-- src/                  # Core implementation
-|-- tests/                # Automated test suites
-|-- docs/                 # Design notes and operational docs
-|-- .github/workflows/    # CI pipelines
-|-- README.md
-|-- LICENSE
-|-- CONTRIBUTING.md
-|-- SECURITY.md
-|-- CODE_OF_CONDUCT.md
-```
-
-## Getting Started
-
-### Prerequisites
-
-- Git
-- Project runtime/toolchain for this repo
-
-### Local Setup
+## Quick start (local mode, no keys)
 
 ```bash
+git clone https://github.com/yksanjo/mcp-discovery
+cd mcp-discovery
 npm ci
-npm run lint
-npm test
 npm run build
 ```
 
-## Usage
+Add to Claude Code:
 
-Document primary commands, API routes, CLI examples, or UI workflows here.
+```bash
+claude mcp add mcp-discovery -- node /path/to/mcp-discovery/dist/index.js
+```
 
-## Quality Standards
+Or to Claude Desktop (`claude_desktop_config.json`):
 
-- CI must pass before merge.
-- Changes require tests for critical behavior.
-- Security-sensitive changes should include risk notes.
-- Keep pull requests focused and reviewable.
+```json
+{
+  "mcpServers": {
+    "mcp-discovery": {
+      "command": "node",
+      "args": ["/path/to/mcp-discovery/dist/index.js"]
+    }
+  }
+}
+```
 
-## Security
+Then ask your agent things like *"find me an MCP server for querying
+Postgres"* and it will call `discover_mcp_server` and get ranked,
+installable results.
 
-See `SECURITY.md` for responsible disclosure and handling guidelines.
+## Tools
 
-## Contributing
+| Tool | Local mode | Hosted mode |
+| --- | --- | --- |
+| `discover_mcp_server` | ✅ keyword search over the bundled snapshot | ✅ semantic search (OpenAI embeddings + pgvector) |
+| `get_server_metrics` | ❌ (needs live probe data) | ✅ latency / uptime / success-rate history |
+| `compare_servers` | ❌ (needs live probe data) | ✅ side-by-side rankings |
 
-See `CONTRIBUTING.md` for branching, commit, and pull request expectations.
+In local mode, `trust_score` (0–100) is derived from GitHub stars and
+results carry no latency/uptime metrics — those require the hosted
+database. The two hosted-only tools fail fast with a clear message
+rather than crashing.
 
-## Roadmap
+Honest caveats about the bundled data: install commands are
+best-effort from the scrape (verify before running anything),
+category labels are mostly missing, and the snapshot is a point in
+time — see "Refreshing the data" below.
 
-Track upcoming milestones, technical debt, and planned feature work.
+## Hosted mode (optional)
 
-## Support
+For semantic search and live metrics you run your own backing services.
+There is currently **no public hosted instance**.
 
-Open a GitHub issue for bugs, feature requests, or documentation gaps.
+Required environment variables:
+
+```bash
+SUPABASE_URL=...                  # Postgres + pgvector (schema in src/db/)
+SUPABASE_SERVICE_ROLE_KEY=...
+OPENAI_API_KEY=...                # text-embedding queries
+```
+
+Setup: apply `src/db/mcp-curator-schema.sql`, then `npm run seed` and
+`npm run generate-embeddings`. `DATABASE.md` documents the schema. The
+REST API (`npm run start`, see `src/api.ts` and `api/` for the Vercel
+entry) exposes the same search over HTTP.
+
+## Integrations
+
+- [`langchain/`](./langchain/) — `MCPDiscoveryTool` for LangChain
+  agents (async via `aiohttp`). Targets a hosted API endpoint you
+  deploy yourself.
+- [AutoGPT blocks](https://github.com/Significant-Gravitas/AutoGPT/issues/11793)
+  — `MCPDiscoveryBlock` / `MCPDiscoveryCategoriesBlock`.
+
+## Refreshing the data
+
+The scrapers live in [`scripts/`](./scripts/) (`scrape_massive.py`,
+`scrape-glama.ts`, and friends). They regenerate
+`data_massive/mcp_servers_all.json`, which local mode picks up
+automatically. You can also point `MCP_DISCOVERY_DATA` at any JSON file
+with the same record shape.
+
+For allow/deny policies (e.g. excluding servers your org hasn't
+vetted), pass `exclude_servers` — see [`SECURITY.md`](./SECURITY.md).
+
+## Development
+
+```bash
+npm run typecheck   # tsc --noEmit
+npm run test:run    # vitest (includes an end-to-end local-mode discover)
+npm run build       # compile to dist/
+```
+
+CI runs all three on every push and PR.
 
 ## License
 
-This project is released under the MIT License.
+MIT

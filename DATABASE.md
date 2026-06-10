@@ -78,10 +78,10 @@ npx -y @namespace/server-name
 
 ## API Usage
 
-Query the live API:
+Query your self-hosted API (no public instance is online):
 
 ```bash
-curl -X POST https://mcp-discovery-two.vercel.app/api/v1/discover \
+curl -X POST http://localhost:3000/api/v1/discover \
   -H "Content-Type: application/json" \
   -d '{"need": "database access"}'
 ```

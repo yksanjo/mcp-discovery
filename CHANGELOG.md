@@ -7,6 +7,37 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2026-06-09
+
+### Added
+
+- **Local mode (no API keys)**: when `SUPABASE_URL` /
+  `SUPABASE_SERVICE_ROLE_KEY` are not set, `discover_mcp_server` now
+  searches the bundled registry snapshot (17,785 unique servers,
+  deduplicated from 18,366 raw records) with keyword scoring. A fresh
+  clone works in Claude Desktop / Claude Code out of the box.
+  `MCP_DISCOVERY_DATA` can point at a custom dataset file.
+- **Real test suite**: 22 vitest tests, including an end-to-end
+  local-mode `discover` call through the MCP tool handler. CI now runs
+  typecheck, tests, and build (previously it only linted markdown).
+
+### Changed
+
+- `get_server_metrics` and `compare_servers` fail fast with a clear
+  "requires hosted mode" message in local mode instead of crashing on
+  missing environment variables.
+- README rewritten with verified claims: real dataset count (the old
+  "14,000+" figure didn't match either dataset), dead hosted-API link
+  removed (the Vercel deployment no longer exists), and explicit
+  local-vs-hosted capability table.
+
+### Removed
+
+- Internal launch/promo notes that didn't belong in a public repo
+  (`MISSION_ACCOMPLISHED.md`, `OUTREACH_EMAILS.md`, `SOCIAL_POSTS.md`,
+  `PITCH.md`, and friends). Root-level scraper scripts moved into
+  `scripts/`.
+
 ## [1.2.0] - 2026-04-30
 
 ### Added

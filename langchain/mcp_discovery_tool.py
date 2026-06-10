@@ -117,7 +117,7 @@ class MCPDiscoveryTool(BaseTool):
     )
     args_schema: Type[BaseModel] = MCPDiscoveryInput
     api_url: str = Field(
-        default="https://mcp-discovery-two.vercel.app",
+        default="http://localhost:3000",
         description="Base URL for the MCP Discovery API",
     )
 
